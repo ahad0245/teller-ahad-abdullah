@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-side">
+            <div class="text-center">
+                <div class="svg-container-profile">
+                    <object data="images/login.svg" type="image/svg+xml">
+                        Your browser does not support SVG
+                    </object>
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            <img src="images/LOGO.png" alt="Logo" class="logo">
+            <div class="login-container">
+                <h2>Login</h2>
+                <p >Please enter your forum detail’s</p>
+                <form id="login-form">
+                    <div class="input-group">
+                        <input type="text" id="username" name="username" placeholder="Username" value="admin" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" placeholder="Password" value="123" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                <p style="color:#007438;">Forget Password</p>
+                <p>Don’t have an account? <a href="#" style="color:#007438;">Register</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script >
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Replace this with actual authentication logic (e.g., sending data to server)
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    // Example: check if username and password are correct
+    if (username === 'admin' && password === '123') {
+        
+        // Redirect to dashboard or another page
+        window.location.href = 'dashboard.html';
+    } else {
+        alert('Invalid username or password. Please try again.');
+        // Clear form fields
+        document.getElementById('username').value = '';
+        document.getElementById('password').value = '';
+        // Focus back on username field
+        document.getElementById('username').focus();
+    }
+});
+    </script>
+</body>
+
+</html>
