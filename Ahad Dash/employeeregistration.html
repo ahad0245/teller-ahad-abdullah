@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="../assets/logo.png" alt="Bank ABC Logo">
+            </div>
+            <ul class="menu">
+                <li class="menu-item "><a href="dashboard.html"><img src="assets/side/image 1.png" alt="">Dashboard</a></li>
+                <li class="menu-item"><a href="branches.html"><img src="assets/side/image 5.png" alt="">Branches</a></li>
+                <li class="menu-item"><a href="Employees.html"><img src="assets/side/image 10.png" alt="">Employees</a></li>
+                <li class="menu-item"><a href="Accounts.html"><img src="assets/side/image 3acc.png" alt="">Accounts</a></li>
+                <li class="menu-item"><a href="Customer Support.html"><img src="assets/side/image 10 (1).png" alt="">Customer Support</a></li>
+                <li class="menu-item"><a href="Transactions.html"><img src="assets/side/image 10 (2).png" alt="">Transactions</a></li>
+                <li class="menu-item"><a href="Currencyexchange.html"><img src="assets/side/image 10 (3).png" alt="">Currency Exchange</a></li>
+                <li class="menu-item"><a href="transferglobally.html"><img src="assets/side/image 10 (4).png" alt="">Transfer Globally</a></li>
+                <li class="menu-item active"><a href="document.html"><img src="assets/side/image 10 (5).png" alt="">Documents</a></li>
+            </ul>
+            
+                
+            <div class="profile">
+                <img src="assets/side/image 15.png" alt="">
+                <div class="profile-main">
+                
+                <p>Profile</p>
+                <p>Abdul Ahad (Employee)</p>
+            </div>
+            </div>
+            <div class="nav-detail">
+                <p><object data="assets/Ellipse 1064reddot.svg" type="image/svg+xml"></object> Employee Account</p>
+                <p><object data="assets/Ellipse 1064bluedot.svg" type="image/svg+xml"></object>Shared Account (Bank ABC)</p>
+            </div>
+        
+            <div class="logout">
+                <button><img src="assets/image 15 (1).png" alt="">Logout</button>
+            </div>
+        </nav>
+        <main class="main-content">
+            <header class="header">
+                <div class="admin-info">
+                    <h3>Admin Panel, ABC Bank</h1>
+                    <p>04 March 2024 | 4:31 PM</p>
+                </div>
+                <div class="actions">
+                    <a href="Customer Support.html">
+                    <img draggable="false" class="action-img-1" src="assets/Group 28.png" alt=""></a>
+                    <input type="search" class="action-search" placeholder="Search...">
+                    <button class="audit-btn"><img src="assets/image 24.png" alt=""> Audit</button>
+                </div>
+            </header>
+
+
+
+
+
+
+
+
+            <section class="stats-transfer  ">
+
+                <div class="header-transfer ">
+                    <h2>Create New Employee</h2>
+                    <p>Welcome to the bank! Create  new employee here.</p>
+                </div>
+
+                <div class="form-container-empdetail">
+                    <div class="form-title-empdetail">Employee Information</div>
+                    <div class="form-group-ahad">
+                    <div class="form-group-empdetail">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" class="input-empdetail" required placeholder="First Name">
+                    </div>
+                    <div class="form-group-empdetail">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" class="input-empdetail" required placeholder="Last Name">
+                    </div>
+                    <div class="form-group-empdetail">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="input-empdetail" required placeholder="Email Address">
+                    </div>
+                </div>
+                <div class="form-group-ahad">
+                    <div class="form-group-empdetail">
+                        <label for="primaryPhone">Primary Phone</label>
+                        <input type="tel" id="primaryPhone" name="primaryPhone" class="input-empdetail" required placeholder="(___)___-____">
+                    </div>
+                    <div class="form-group-empdetail">
+                        <label for="secondaryPhone">Secondary Phone</label>
+                        <input type="tel" id="secondaryPhone" name="secondaryPhone" class="input-empdetail" placeholder="(___)___-____">
+                    </div>
+                    <div class="form-group-empdetail">
+                        <label for="tin">Tax Identification Number (TIN)</label>
+                        <input type="text" id="tin" name="tin" class="input-empdetail" placeholder="(___)___-____">
+                    </div>
+                </div>
+                    <div class="form-group-empdetail">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" class="input-empdetail">
+                    </div>
+                    <div class="form-title-empdetail">Address Details</div>
+                    <div class="form-group-empdetail">
+                        <label for="houseNumber">House Number</label>
+                        <input type="text" id="houseNumber" name="houseNumber" class="input-empdetail" required placeholder="House Number">
+                    </div>
+                    <div class="form-group-ahad">
+                    <div class="form-group-empdetail">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" class="input-empdetail" required placeholder="City">
+                    </div>
+                    <div class="form-group-empdetail">
+                        <label for="postalCode">Postal Code</label>
+                        <input type="text" id="postalCode" name="postalCode" class="input-empdetail" required placeholder="Postal Code">
+                    </div>
+                    <div class="form-group-empdetail">
+                        <label for="province">Province</label>
+                        <select id="province" name="province" class="input-empdetail" required>
+                            <option value="">Select Province</option>
+                            <option value="province1">Province 1</option>
+                            <option value="province2">Province 2</option>
+                            <option value="province3">Province 3</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group-empdetail">
+                    <button type="submit" class="btn-empdetail">Submit</button>
+                </div>
+                </div>
+                
+                
+            </section>
+           
+          
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

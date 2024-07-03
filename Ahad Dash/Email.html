@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+   .content {
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #f0f0f0;
+    box-sizing: border-box;
+    overflow: auto;
+    /* Ensure scroll if content overflows */
+}
+
+.content h1 {
+    margin-top: 0;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.profile-section {
+    margin-top: auto;
+    margin-bottom: 100px;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    /* Align items to space-between */
+    align-items: center;
+    /* Center items vertically */
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: left;
+    /* Center text horizontally */
+}
+
+
+.profile-info .profile-label {
+    color: #ffffff;
+    /* Yellow color for the label */
+
+    /* Bold font for the label */
+    margin-right: 10px;
+}
+
+.profile-info .profile-name {
+    color: #ffffff;
+    /* Green color for the name */
+    font-size: 16px;
+    font-weight: bold;
+    /* Larger font size for the name */
+}
+
+.logout-button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.logout-button:hover {
+    text-decoration: underline;
+}
+
+.profile-info span:first-child {
+    color: rgb(250, 250, 250);
+}
+
+/* Add this to dashboard.css */
+
+
+
+
+
+.view-detail-button {
+    position: absolute;
+    top: 10px;
+    /* Adjust top position */
+    right: 10px;
+    /* Adjust right position */
+    background-color: transparent;
+    color: #8cc63f;
+    /* Light green text */
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.view-detail-button:hover {
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+.card-footer {
+    position: absolute;
+    bottom: 10px;
+    /* Adjust top position */
+    right: 10px;
+    /* Adjust right position */
+    background-color: transparent;
+    color: #070707;
+    /* Light green text */
+    border: none;
+}
+
+.card-footer .footer-line1 {
+    font-weight: bold;
+    /* Example style for the first line */
+}
+
+.card-footer .footer-line2 {
+    color: #666;
+    /* Example style for the second line */
+    font-size: 14px;
+    /* Example font size */
+}
+
+/* search bar */
+.search-bar-container {
+    position: relative;
+    width: 90%;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.content-search-box {
+    width: 100%;
+    padding: 10px;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 15px;
+    background-color: #EFF0F1;
+    border: 1px solid #3a3a3a;
+
+}
+.content-search-box:focus {
+    outline: none;
+    /* border: none; */
+  
+   
+}
+
+.filter-button {
+   
+  width: 15%;
+   
+    background-color: #007438;
+    color: white;
+    margin-right: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 37px;
+}
+.filter-button2 {
+   
+  width: 20%;
+   
+    background-color: #007438;
+    color: white;
+    margin-right: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 37px;
+}
+
+.filter-button img.filter-button-icon {
+    width: 16px;
+
+    height: 16px;
+
+    margin-right: 5px;
+
+}
+
+.filter-clear {
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.filter-clear:hover {
+    color: red;
+}
+
+/* search bar */
+/*  */
+.unique-card-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.unique-card {
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    width: 90%;
+    /* align-items: center; */
+    padding: 10px;
+}
+
+.unique-card-content {
+    display: flex;
+    /* flex-direction: column; */
+    width: 18%;
+    align-items: center;
+
+}
+
+
+.unique-profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.unique-profile-image2 {
+    /* width: 50px; */
+    /* height: 50px; */
+    /* border-radius: 50%; */
+    margin-right: 10px;
+}
+
+.unique-profile-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Center the text */
+    text-align: left;
+    /* Center the text horizontally */
+}
+
+.unique-profile-text {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #3a3a3a;
+}
+
+.unique-account-details {
+    font-size: 14px;
+    color: #666;
+}
+
+.unique-additional-text {
+    margin-top: 15px;
+    /* Add margin above the additional text */
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+}
+
+.addition-info-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.addition-info-img {
+    margin-left: 50px;
+}
+
+/*  */
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 90%;
+    /* Adjust margin as needed */
+}
+
+
+
+/*  */
+/*  */
+.account-count {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    padding: 10px;
+    /* Add padding for better spacing */
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+    /* White text color */
+    margin: 0;
+    /* Remove default margin */
+    line-height: 30px;
+    /* Match line-height with circle height for vertical alignment */
+}
+.svg-container-profile{
+    margin-top: auto;
+    /* width: 99%;   */
+}
+.svg-container-profile object{
+    width: 100%;  
+}
+.logout button {
+    background-color: #007438;
+    color: #f3f1f1;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+.logout button img{
+    padding-right: 15px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="../assets/logo.png" alt="Bank ABC Logo">
+            </div>
+            <ul class="menu">
+                <li class="menu-item "><a href="dashboard.html"><img src="assets/side/image 1.png" alt="">Dashboard</a>
+                </li>
+                <li class="menu-item"><a href="branches.html"><img src="assets/side/image 5.png" alt="">Branches</a>
+                </li>
+                <li class="menu-item"><a href="Employees.html"><img src="assets/side/image 10.png" alt="">Employees</a>
+                </li>
+                <li class="menu-item"><a href="Accounts.html"><img src="assets/side/image 3acc.png" alt="">Accounts</a>
+                </li>
+                <li class="menu-item"><a href="Customer Support.html"><img src="assets/side/image 10 (1).png"
+                            alt="">Customer Support</a></li>
+                <li class="menu-item active"><a href="Transactions.html"><img src="assets/side/image 10 (2).png"
+                            alt="">Transactions</a></li>
+                <li class="menu-item"><a href="Currencyexchange.html"><img src="assets/side/image 10 (3).png"
+                            alt="">Currency Exchange</a></li>
+                <li class="menu-item"><a href="transferglobally.html"><img src="assets/side/image 10 (4).png"
+                            alt="">Transfer Globally</a></li>
+                <li class="menu-item"><a href="document.html"><img src="assets/side/image 10 (5).png"
+                            alt="">Documents</a></li>
+            </ul>
+
+
+            <div class="profile">
+                <img src="assets/side/image 15.png" alt="">
+                <div class="profile-main">
+
+                    <p>Profile</p>
+                    <p>Abdul Ahad (Employee)</p>
+                </div>
+            </div>
+
+            <div class="nav-detail">
+                <p><object data="assets/Ellipse 1064reddot.svg" type="image/svg+xml"></object> Employee Account</p>
+                <p><object data="assets/Ellipse 1064bluedot.svg" type="image/svg+xml"></object>Shared Account (Bank ABC)
+                </p>
+            </div>
+            <div class="logout">
+                <button><img src="assets/image 15 (1).png" alt="">Logout</button>
+            </div>
+        </nav>
+        <main class="main-content">
+            <header class="header">
+                <div class="admin-info">
+                    <h3>Admin Panel, ABC Bank</h1>
+                        <p>04 March 2024 | 4:31 PM</p>
+                </div>
+                <div class="actions">
+                    <a href="Customer Support.html">
+                        <img draggable="false" class="action-img-1" src="assets/Group 28.png" alt=""></a>
+                    <input type="search" class="action-search" placeholder="Search...">
+                    <!-- <button class="audit-btn"><img src="assets/image 24.png" alt=""> Audit</button> -->
+                </div>
+            </header>
+
+
+
+            <div class="content">
+                <h1>Account Lookup</h1>
+                <p>Here is the Comprehensive overview of account metrics available for analysis.</p>
+                <div class="search-bar-container">
+                    <div class="filter-button">
+                        <img src="assets/user_icon.png" alt="User Icon" class="filter-button-icon">Email
+                        <span class="filter-clear">&times;</span>
+                    </div>
+                    <input type="text" class="content-search-box" placeholder="Search Accounts.">
+                </div>
+
+                <!-- accounts count -->
+                <div class="account-count">
+
+                    <h1>Account found: 1</h1>
+                </div>
+                <!-- accounts list -->
+
+                <div class="card-container">
+                    <!-- Account cards will be dynamically added here -->
+                    <div class="unique-card">
+                        <div class="unique-card-content">
+                            <img src="assets/mail.svg" alt="Profile Image" class="unique-profile-image2">
+                            <div class="unique-profile-details">
+                                <div class="unique-profile-text">E-Mail</div>
+                                <!-- <div class="unique-account-details">Account Number: 123456789</div> -->
+                            </div>
+                        </div>
+                        <div class="addition-info-container">
+                            <div class="unique-additional-text">abc@abc.com</div>
+                            <!-- <img src="images/AccR.png" alt="Profile Image" class="addition-info-img"> -->
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            
+
+
+
+            <!-- <section class="stats-account ">
+                <div style="margin-top:20px ;" class="header-transfer ">
+                    <h2>Account Request</h2>
+                    <p>Here is the Comprehensive overview of account metrics available for analysis.</p>
+                </div>
+                <div class="content-account">
+
+
+
+                    <div class="card-container-account">
+                        <div class="card-account">
+                            <img src="assets/Ellipse 1072pic.png" alt="Profile Image" class="profile-image-account">
+                            <div class="card-info-account">
+                                <div class="profile-details-account">
+                                    <div class="profile-text-account">
+                                        <h2>Leslie Alexander</h2>
+                                        <p>Account No : 425687</p>
+                                    </div>
+                                </div>
+                                <div class="random-text-account">
+                                    <p>Workflow: Alamdemo123</p>
+                                </div>
+                                <div class="card-buttons-account">
+                                    <button class="card-button-account">NEW ACCOUNT</button>
+                                    <button class="card-button-account">APPROVED</button>
+                                </div>
+                            </div>
+                            <div class="card-footer-account">
+                                <p class="footer-line1-account">account Created</p>
+                                <p class="footer-line2-account">03/05/2024</p>
+                            </div>
+                            <button class="view-detail-button-account">▼ view detail</button>
+                        </div>
+
+                        <div class="card-account">
+                            <img src="assets/Ellipse 1072pic.png" alt="Profile Image" class="profile-image-account">
+                            <div class="card-info-account">
+                                <div class="profile-details-account">
+                                    <div class="profile-text-account">
+                                        <h2>John Doe</h2>
+                                        <p>Account No : 123456</p>
+                                    </div>
+                                </div>
+                                <div class="random-text-account">
+                                    <p>Workflow: Example456</p>
+                                </div>
+                                <div class="card-buttons-account">
+                                    <button class="card-button-account">NEW ACCOUNT</button>
+                                    <button class="card-button-account">APPROVED</button>
+                                </div>
+                            </div>
+                            <div class="card-footer-account">
+                                <p class="footer-line1-account">account Created</p>
+                                <p class="footer-line2-account">03/05/2024</p>
+                            </div>
+                            <button class="view-detail-button-account">▼ view detail</button>
+                        </div>
+
+
+                        <div class="card-account">
+                            <img src="assets/Ellipse 1072pic.png" alt="Profile Image" class="profile-image-account">
+                            <div class="card-info-account">
+                                <div class="profile-details-account">
+                                    <div class="profile-text-account">
+                                        <h2>Jane Smith</h2>
+                                        <p>Account No : 789012</p>
+                                    </div>
+                                </div>
+                                <div class="random-text-account">
+                                    <p>Workflow: Test789</p>
+                                </div>
+                                <div class="card-buttons-account">
+                                    <button class="card-button-account">NEW ACCOUNT</button>
+                                    <button class="card-button-account">APPROVED</button>
+                                </div>
+                            </div>
+                            <div class="card-footer-account">
+                                <p class="footer-line1-account">account Created</p>
+                                <p class="footer-line2-account">03/05/2024</p>
+                            </div>
+                            <button class="view-detail-button-account">▼ view detail</button>
+                        </div>
+
+
+                        <div class="card-account">
+                            <img src="assets/Ellipse 1072pic.png" alt="Profile Image" class="profile-image-account">
+                            <div class="card-info-account">
+                                <div class="profile-details-account">
+                                    <div class="profile-text-account">
+                                        <h2>Jane Smith</h2>
+                                        <p>Account No : 789012</p>
+                                    </div>
+                                </div>
+                                <div class="random-text-account">
+                                    <p>Workflow: Test789</p>
+                                </div>
+                                <div class="card-buttons-account">
+                                    <button class="card-button-account">NEW ACCOUNT</button>
+                                    <button class="card-button-account">APPROVED</button>
+                                </div>
+                            </div>
+                            <div class="card-footer-account">
+                                <p class="footer-line1-account">account Created</p>
+                                <p class="footer-line2-account">03/05/2024</p>
+                            </div>
+                            <button class="view-detail-button-account">▼ view detail</button>
+                        </div>
+
+                        <div class="card-account">
+                            <img src="assets/Ellipse 1072pic.png" alt="Profile Image" class="profile-image-account">
+                            <div class="card-info-account">
+                                <div class="profile-details-account">
+                                    <div class="profile-text-account">
+                                        <h2>Jane Smith</h2>
+                                        <p>Account No : 789012</p>
+                                    </div>
+                                </div>
+                                <div class="random-text-account">
+                                    <p>Workflow: Test789</p>
+                                </div>
+                                <div class="card-buttons-account">
+                                    <button class="card-button-account">NEW ACCOUNT</button>
+                                    <button class="card-button-account">APPROVED</button>
+                                </div>
+                            </div>
+                            <div class="card-footer-account">
+                                <p class="footer-line1-account">account Created</p>
+                                <p class="footer-line2-account">03/05/2024</p>
+                            </div>
+                            <button class="view-detail-button-account">▼ view detail</button>
+                        </div>
+
+
+                        <div class="card-account">
+                            <img src="assets/Ellipse 1072pic.png" alt="Profile Image" class="profile-image-account">
+                            <div class="card-info-account">
+                                <div class="profile-details-account">
+                                    <div class="profile-text-account">
+                                        <h2>Jane Smith</h2>
+                                        <p>Account No : 789012</p>
+                                    </div>
+                                </div>
+                                <div class="random-text-account">
+                                    <p>Workflow: Test789</p>
+                                </div>
+                                <div class="card-buttons-account">
+                                    <button class="card-button-account">NEW ACCOUNT</button>
+                                    <button class="card-button-account">APPROVED</button>
+                                </div>
+                            </div>
+                            <div class="card-footer-account">
+                                <p class="footer-line1-account">account Created</p>
+                                <p class="footer-line2-account">03/05/2024</p>
+                            </div>
+                            <button class="view-detail-button-account">▼ view detail</button>
+                        </div>
+
+                        <div class="card-account">
+                            <img src="assets/Ellipse 1072pic.png" alt="Profile Image" class="profile-image-account">
+                            <div class="card-info-account">
+                                <div class="profile-details-account">
+                                    <div class="profile-text-account">
+                                        <h2>Jane Smith</h2>
+                                        <p>Account No : 789012</p>
+                                    </div>
+                                </div>
+                                <div class="random-text-account">
+                                    <p>Workflow: Test789</p>
+                                </div>
+                                <div class="card-buttons-account">
+                                    <button class="card-button-account">NEW ACCOUNT</button>
+                                    <button class="card-button-account">APPROVED</button>
+                                </div>
+                            </div>
+                            <div class="card-footer-account">
+                                <p class="footer-line1-account">account Created</p>
+                                <p class="footer-line2-account">03/05/2024</p>
+                            </div>
+                            <button class="view-detail-button-account">▼ view detail</button>
+                        </div>
+
+
+                        <div class="card-account">
+                            <img src="assets/Ellipse 1072pic.png" alt="Profile Image" class="profile-image-account">
+                            <div class="card-info-account">
+                                <div class="profile-details-account">
+                                    <div class="profile-text-account">
+                                        <h2>Jane Smith</h2>
+                                        <p>Account No : 789012</p>
+                                    </div>
+                                </div>
+                                <div class="random-text-account">
+                                    <p>Workflow: Test789</p>
+                                </div>
+                                <div class="card-buttons-account">
+                                    <button class="card-button-account">NEW ACCOUNT</button>
+                                    <button class="card-button-account">APPROVED</button>
+                                </div>
+                            </div>
+                            <div class="card-footer-account">
+                                <p class="footer-line1-account">account Created</p>
+                                <p class="footer-line2-account">03/05/2024</p>
+                            </div>
+                            <button class="view-detail-button-account">▼ view detail</button>
+                        </div>
+
+                        <div class="card-account">
+                            <img src="assets/Ellipse 1072pic.png" alt="Profile Image" class="profile-image-account">
+                            <div class="card-info-account">
+                                <div class="profile-details-account">
+                                    <div class="profile-text-account">
+                                        <h2>Jane Smith</h2>
+                                        <p>Account No : 789012</p>
+                                    </div>
+                                </div>
+                                <div class="random-text-account">
+                                    <p>Workflow: Test789</p>
+                                </div>
+                                <div class="card-buttons-account">
+                                    <button class="card-button-account">NEW ACCOUNT</button>
+                                    <button class="card-button-account">APPROVED</button>
+                                </div>
+                            </div>
+                            <div class="card-footer-account">
+                                <p class="footer-line1-account">account Created</p>
+                                <p class="footer-line2-account">03/05/2024</p>
+                            </div>
+                            <button class="view-detail-button-account">▼ view detail</button>
+                        </div>
+
+
+                        <div class="card-account">
+                            <img src="assets/Ellipse 1072pic.png" alt="Profile Image" class="profile-image-account">
+                            <div class="card-info-account">
+                                <div class="profile-details-account">
+                                    <div class="profile-text-account">
+                                        <h2>Jane Smith</h2>
+                                        <p>Account No : 789012</p>
+                                    </div>
+                                </div>
+                                <div class="random-text-account">
+                                    <p>Workflow: Test789</p>
+                                </div>
+                                <div class="card-buttons-account">
+                                    <button class="card-button-account">NEW ACCOUNT</button>
+                                    <button class="card-button-account">APPROVED</button>
+                                </div>
+                            </div>
+                            <div class="card-footer-account">
+                                <p class="footer-line1-account">account Created</p>
+                                <p class="footer-line2-account">03/05/2024</p>
+                            </div>
+                            <button class="view-detail-button-account">▼ view detail</button>
+                        </div>
+
+
+                    </div>
+                </div> -->
+    </div>
+
+
+
+
+
+
+
+    </main>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
