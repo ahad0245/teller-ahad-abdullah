@@ -48,7 +48,7 @@
                     <li></a><button class="icon-button" id="bell-icon-button"><img src="images/bell_icon.png"
                                 alt="Bell Icon" class="icon"></button></li>
                     <li class="search-container"><input type="text" class="search-box" placeholder="Search..."></li>
-                    <li><button class="oval-button"><img src="images/user_icon.png" alt="User Icon"> Audit</button></li>
+                    <!-- <li><button class="oval-button"><img src="images/user_icon.png" alt="User Icon"> Audit</button></li> -->
                 </ul>
             </div>
             <div class="content">
@@ -94,14 +94,23 @@
                         <span class="dropdown-text">Transfer to</span>
                         <input type="text" id="textInput" name="textInput" placeholder="Type something">
                     </div>
-                    <div class="Transfer-btn">Transfer</div>
+                    <div class="Transfer-btn" id="submitBtn">Transfer</div>
                     <p class="name">By clicking Transfer, I authorize Scale to initiate the transaction detailed above.
                     </p>
                 </div>
             </div>
         </div>
     </div>
+     <!-- Modal -->
+     <div id="myModal" class="modal">
+        <div class="modal-content">
 
+            <img src="images/Animation - 1719470903488.gif" alt="Thank You GIF" class="modal-gif">
+            <p>Amount Has Been Transfer
+                Successfuly!</p>
+            <button class="modal-submit-btn" onclick="navigateToDashboard()">Continue</button>
+        </div>
+    </div>
     <script src="scripts/main.js"></script>
     <script>
         document.getElementById('bell-icon-button').addEventListener('click', function () {
@@ -109,6 +118,34 @@
         });
         function navigateToLoginPage() {
             window.location.href = 'login.html'; // Replace with the actual URL of the new account page
+        }
+         // 
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        // Get the button that opens the modal
+        var btn = document.getElementById("submitBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        // 
+        function navigateToDashboard() {
+            window.location.href = 'Transfer.html';
         }
     </script>
 

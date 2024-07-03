@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/BankTransfer.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <img src="images/logo_white.png" alt="Logo" class="sidebar-logo">
+            <ul>
+                <li><a href="dashboard.html"><img src="images/image (3).png" alt="Dashboard Icon">Dashboard</a></li>
+
+                <li><a href="accountLookup.html"><img src="images/image (4).png" alt="Account Icon">Account</a></li>
+                <li><a href="CurrencyExchange.html"><img src="images/e_sideBar (4).png" alt="Account Icon">Currency
+                        Exchange</a>
+                <li><a href="customer.html"><img src="images/image (1).png" alt="Customer Icon">Customer</a></li>
+                <li><a href="transaction.html"><img src="images/image (2).png" alt="Transaction Icon">Transaction</a>
+                </li>
+            </ul>
+            <div class="svg-container-profile">
+                <object data="images/profile.svg" type="image/svg+xml">
+                    Your browser does not support SVG
+                </object>
+            </div>
+            <div class="logout" onclick="navigateToLoginPage()">
+                <button><img src="images/Logout.png" alt="">Logout</button>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="navbar">
+                <div class="welcome-container">
+                    <h3>Welcome back, ABC bank</h3>
+                    <p>04 March 2024 | 4:31 PM</p>
+                </div>
+                <ul>
+                    <li></a><button class="icon-button" id="bell-icon-button"><img src="images/bell_icon.png"
+                                alt="Bell Icon" class="icon"></button></li>
+                    <li class="search-container"><input type="text" class="search-box" placeholder="Search..."></li>
+                    <!-- <li><button class="oval-button"><img src="images/user_icon.png" alt="User Icon"> Audit</button></li> -->
+                </ul>
+            </div>
+            <div class="content">
+                <div class="content-header">
+                    <h4>Bank Transfer</h4>
+                    <p>List of all Secure transfer of money globally.</p>
+                </div>
+                <div class="content-bank-transfer">
+                    <p class="text1">Deposite money into an account</p>
+                    <div class="content-bank-transfer-heading"><img src="images/Mask group.png"> Bank transfer</div>
+                    <p class="text1">Amount</p>
+                    <div class="dropdown-container">
+                        <!-- <div class="dropdown">
+                            <span class="dropdown-text">Country</span>
+                            <select>
+                                <option value="option1">Select</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                        </div> -->
+                        <div class="dropdown">
+                            <span class="dropdown-text">Bank</span>
+                            <select>
+                                <option value="option1">Select</option>
+                                <option value="option2">Option B</option>
+                                <option value="option3">Option C</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Text input field -->
+
+                    <div style="display: flex;">
+                        <div class="text-input-container">
+                            <span class="dropdown-text">Transfer From</span>
+                            <input type="text" id="textInput" name="textInput" placeholder="Type something">
+                        </div>
+                        <div class="text-input-container">
+                            <span class="dropdown-text">Transfer to</span>
+                            <input type="text" id="textInput" name="textInput" placeholder="Type something">
+                        </div>
+                    </div>
+                    <div class="text-input-container2">
+                        <span class="dropdown-text">Transfer to</span>
+                        <input type="text" id="textInput" name="textInput" placeholder="Type something">
+                    </div>
+                    <div class="Transfer-btn" id="submitBtn">Transfer</div>
+                    <p class="name">By clicking Transfer, I authorize Scale to initiate the transaction detailed above.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+
+            <img src="images/Animation - 1719470903488.gif" alt="Thank You GIF" class="modal-gif">
+            <p>Amount Has Been Transfer
+                Successfuly!</p>
+            <button class="modal-submit-btn" onclick="navigateToDashboard()">Continue</button>
+        </div>
+    </div>
+    <script src="scripts/main.js"></script>
+    <script>
+        document.getElementById('bell-icon-button').addEventListener('click', function () {
+            window.location.href = 'notification.html';
+        });
+        function navigateToLoginPage() {
+            window.location.href = 'login.html'; // Replace with the actual URL of the new account page
+        }
+        // 
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        // Get the button that opens the modal
+        var btn = document.getElementById("submitBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        // 
+        function navigateToDashboard() {
+            window.location.href = 'Banktransfer.html';
+        }
+    </script>
+
+</body>
+
+</html>

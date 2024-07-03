@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>viewdetail</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <link rel="stylesheet" href="styles/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="styles/dashboard.css"> -->
@@ -48,7 +50,7 @@
                     <li></a><button class="icon-button" id="bell-icon-button"><img src="images/bell_icon.png"
                                 alt="Bell Icon" class="icon"></button></li>
                     <li class="search-container"><input type="text" class="search-box" placeholder="Search..."></li>
-                    <li><button class="oval-button"><img src="images/user_icon.png" alt="User Icon"> Audit</button></li>
+                    <!-- <li><button class="oval-button"><img src="images/user_icon.png" alt="User Icon"> Audit</button></li> -->
                 </ul>
             </div>
             <div class="content">
@@ -99,7 +101,7 @@
                             </div>
                             <div class="section1-3-buttons">
                                 <h4>The customer has not yet applied for any loan. Active loan for the customer from here.</h4>
-                                <button class="gradient-button">Get Loan Now</button>
+                                <button class="gradient-button"  onclick="openNew()">Get Loan Now</button>
                             </div>
                         </div>
                     </div>
@@ -250,8 +252,8 @@
                                     <!-- Add more rows as needed -->
                                 </tbody>
                             </table>
-                            <div class="show-more-btn">
-                                Show More
+                            <div class="show-more-btn"  id="downloadPdfBtn">
+                                Downlaod
                             </div>
                         </div>
                     </div>
@@ -264,15 +266,37 @@
 
     <script src="scripts/main.js"></script>
     <script>
-        // document.getElementById('bell-icon-button').addEventListener('click', function () {
-        //     window.location.href = 'notification.html';
-        // });
+        document.getElementById('bell-icon-button').addEventListener('click', function () {
+            window.location.href = 'notification.html';
+        });
         function navigateToLoginPage() {
             window.location.href = 'login.html'; // Replace with the actual URL of the new account page
         }
+        function openNew() {
+            window.location.href = 'LoanApply.html';
+        }
+    </script>
+      <script>
+        document.getElementById('downloadPdfBtn').addEventListener('click', function () {
+            const { jsPDF } = window.jspdf;
+            const table = document.querySelector('.transaction-table');
+
+            html2canvas(table).then((canvas) => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('p', 'pt', 'a4');
+
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                pdf.save('transaction-table.pdf');
+            });
+        });
+
     </script>
 
-
+  
 </body>
 
 </html>

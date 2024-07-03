@@ -49,7 +49,7 @@
                     <li></a><button class="icon-button" id="bell-icon-button"><img src="images/bell_icon.png"
                                 alt="Bell Icon" class="icon"></button></li>
                     <li class="search-container"><input type="text" class="search-box" placeholder="Search..."></li>
-                    <li><button class="oval-button"><img src="images/user_icon.png" alt="User Icon"> Audit</button></li>
+                    <!-- <li><button class="oval-button"><img src="images/user_icon.png" alt="User Icon"> Audit</button></li> -->
                 </ul>
             </div>
             <div class="content">
@@ -161,7 +161,7 @@
                         <h4>Recent Activity</h4>
                         <div class="Loan_summary_recent_acitivity_loan_create">
                             <h4>Loan Offer </h4>
-                            <div>create offer</div>
+                            <!-- <div>create offer</div> -->
                         </div>
                     </div>
                     <div class="RecentActivity-container">
@@ -215,8 +215,12 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <object data="images/RecentActivity.svg" type="image/svg+xml" class="loan-summary-table-svg">
-                        </object>
+                        <!-- <object data="images/RecentActivity.svg" type="image/svg+xml" class="loan-summary-table-svg" onclick="openNew()">
+                        </object> -->
+                        
+                        <img src="images/RecentActivity.svg" class="loan-summary-table-svg"  onclick="openNew()">
+                     
+                        
                     </div>
                     <!-- <div class="svg-container">
                         <object data="images/Group 9446.svg" type="image/svg+xml" class="loan-summary-table">
@@ -233,48 +237,7 @@
                                 <div class="Reject">Reject</div>
                             </div>
                         </div>
-                        <!-- <table class="transaction-table">
-                            <thead>
-                                <tr>
-                                    <th>Account #</th>
-                                    <th>Request Generated</th>
-                                    <th>Name</th>
-                                    <th>Phone No.</th>
-                                    <th>Loan Status</th>
-                                    <th>Address</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="table-row">
-                                    <td>#256487</td>
-                                    <td>23 Jan 2024 02:54 AM</td>
-                                    <td>Leslie Alexander</td>
-                                    <td>(702) 555-0122</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                    <td>Gelsenkirchen</td>
-                                    <td class="action"><a href="#">View Details</a></td>
-                                </tr>
-                                <tr class="table-row">
-                                    <td>#256487</td>
-                                    <td>23 Jan 2024 02:54 AM</td>
-                                    <td>Annette Black</td>
-                                    <td>(671) 555-0110</td>
-                                    <td><span class="status approved">Approved</span></td>
-                                    <td>Salem (OR)</td>
-                                    <td class="action"><a href="#">View Details</a></td>
-                                </tr>
-                                <tr class="table-row">
-                                    <td>#256487</td>
-                                    <td>23 Jan 2024 02:54 AM</td>
-                                    <td>Cody Fisher</td>
-                                    <td>(205) 555-0100</td>
-                                    <td><span class="status rejected">Rejected</span></td>
-                                    <td>San Juan</td>
-                                    <td class="action"><a href="#">View Details</a></td>
-                                </tr>
-                            </tbody>
-                        </table> -->
+                     
                         <div class="documents-table-body">
 
                             <div class="row">
@@ -354,6 +317,9 @@
         function MakePayment() {
             // Add your navigation logic here
             alert('Payment has been made');
+        }
+        function openNew() {
+            window.location.href = 'LoanApply.html';
         }
     </script>
 

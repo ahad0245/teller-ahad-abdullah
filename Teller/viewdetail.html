@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>viewdetail</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
     <!-- <link rel="stylesheet" href="styles/dashboard.css"> -->
@@ -17,8 +19,10 @@
             <img src="images/logo_white.png" alt="Logo" class="sidebar-logo">
             <ul>
                 <li><a href="dashboard.html"><img src="images/image (3).png" alt="Dashboard Icon">Dashboard</a></li>
-              
+
                 <li><a href="accountLookup.html"><img src="images/image (4).png" alt="Account Icon">Account</a></li>
+                <li><a href="CurrencyExchange.html"><img src="images/e_sideBar (4).png" alt="Account Icon">Currency
+                        Exchange</a>
                 <li><a href="customer.html"><img src="images/image (1).png" alt="Customer Icon">Customer</a></li>
                 <li><a href="transaction.html"><img src="images/image (2).png" alt="Transaction Icon">Transaction</a>
                 </li>
@@ -42,7 +46,7 @@
                     <li></a><button class="icon-button" id="bell-icon-button"><img src="images/bell_icon.png"
                                 alt="Bell Icon" class="icon"></button></li>
                     <li class="search-container"><input type="text" class="search-box" placeholder="Search..."></li>
-                    <li><button class="oval-button"><img src="images/user_icon.png" alt="User Icon"> Audit</button></li>
+                    <!-- <li><button class="oval-button"><img src="images/user_icon.png" alt="User Icon"> Audit</button></li> -->
                 </ul>
             </div>
             <div class="content">
@@ -92,9 +96,9 @@
                                 </div>
                             </div>
                             <div class="section1-3-buttons">
-                                <button class="gradient-button">Send money</button>
-                                <button class="gradient-button">Cash widthdrawl</button>
-                                <button class="gradient-button">Amount Deposit</button>
+                                <button class="gradient-button" onclick="openModal('modal1')">Send money</button>
+                                <button class="gradient-button" onclick="openModal('modal2')">Cash withdrawal</button>
+                                <button class="gradient-button" onclick="openModal('modal3')">Amount Deposit</button>
                             </div>
                         </div>
                     </div>
@@ -194,7 +198,7 @@
                                         </td>
                                     </tr>
                                     <!-- Add more rows as needed -->
-                                </tbody>  
+                                </tbody>
                             </table>
                             <h3>Customer loan history</h3>
                             <table class="transaction-table">
@@ -243,17 +247,72 @@
                                         </td>
                                     </tr>
                                     <!-- Add more rows as needed -->
+
                                 </tbody>
                             </table>
-                            <div class="show-more-btn">
-                                Show More
+                            <div class="show-more-btn" id="downloadPdfBtn">
+                                Downlaod
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
+    <!-- Modals -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <p>Send money</p>
+            <div class="modal-btn" onclick="navigateToBAnkTransfer()"><img src="images/bank.svg" alt="bank" class="modal-btn-img">Bank Transfer<p></p>
+            </div>
+            <div class="modal-btn" onclick="navigateToTransferGlobally()"><img src="images/Globe.svg" alt="bank" class="modal-btn-img">Bank Globally<p>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <!-- <span class="close" onclick="closeModal('modal2')">&times;</span> -->
+            <p>Cash withdrawal</p>
+            <div class="enteramount">Enter Amount</div>
+            <input type="text" placeholder="Enter Amount">
+            <div class="info">
+                <span class="info-head">Current Balance</span>
+                <span class="Sub_head">BR 40,000</span>
+                <span class="info-head">Maximum Limit</span>
+                <span class="Sub_head">BR 80,000</span>
+            </div>
+            <div class="btn">
+                <button id="submitBtn">Done</button>
+            </div>
+        </div>
+    </div>
 
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <!-- <span class="close" onclick="closeModal('modal2')">&times;</span> -->
+            <p>Amount Deposite</p>
+            <div class="enteramount">Enter Amount</div>
+            <input type="text" placeholder="Enter Amount">
+            <div class="info">
+                <span class="info-head">Current Balance</span>
+                <span class="Sub_head">BR 40,000</span>
+                <span class="info-head">Maximum Limit</span>
+                <span class="Sub_head">BR 80,000</span>
+            </div>
+            <div class="btn">
+                <button id="submitBtn2">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="success-modal-content">
+
+            <img src="images/Animation - 1719470903488.gif" alt="Thank You GIF" class="modal-gif">
+            <p> Successfuly!</p>
+            <button class="modal-submit-btn" onclick="navigateToDashboard()">Continue</button>
         </div>
     </div>
 
@@ -264,6 +323,98 @@
         });
         function navigateToLoginPage() {
             window.location.href = 'login.html'; // Replace with the actual URL of the new account page
+        }
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        // Close the modal if the user clicks outside of the modal content
+        window.onclick = function (event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = "none";
+            }
+        }    
+    </script>
+    <script>
+        document.getElementById('downloadPdfBtn').addEventListener('click', function () {
+            const { jsPDF } = window.jspdf;
+            const table = document.querySelector('.transaction-table');
+
+            html2canvas(table).then((canvas) => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('p', 'pt', 'a4');
+
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                pdf.save('transaction-table.pdf');
+            });
+        });
+    </script>
+    <script>
+          // Get the modal
+          var modal = document.getElementById("myModal");
+        // Get the button that opens the modal
+        var btn = document.getElementById("submitBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        function navigateToBAnkTransfer() {
+            window.location.href = 'Banktransfer.html'; // Replace with the actual URL of the new account page
+        }
+        function navigateToTransferGlobally() {
+            window.location.href = 'TransferGlobally.html'; // Replace with the actual URL of the new account page
+        }
+        function navigateToDashboard() {
+            window.location.href = 'viewdetail.html'; // Replace with the actual URL of the new account page
+        }
+    </script>
+    <script>
+          // Get the modal
+          var modal = document.getElementById("myModal");
+        // Get the button that opens the modal
+        var btn = document.getElementById("submitBtn2");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         }
     </script>
 

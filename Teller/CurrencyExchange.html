@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Exchange</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/CurrencyExchange.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <img src="images/logo_white.png" alt="Logo" class="sidebar-logo">
+            <ul>
+                <li ><a href="dashboard.html"><img src="images/image (3).png" alt="Dashboard Icon">Dashboard</a></li>
+                <li><a href="accountLookup.html"><img src="images/image (4).png" alt="Account Icon">Account</a></li>
+                <li class="Active-tab-side"><a href="CurrencyExchange.html"><img src="images/e_sideBar (4).png" alt="Account Icon">Currency Exchange</a>
+                <li><a href="customer.html"><img src="images/image (1).png" alt="Customer Icon">Customer</a></li>
+                <li><a href="transaction.html"><img src="images/image (2).png" alt="Transaction Icon">Transaction</a>
+                </li>
+            </ul>
+            <div class="svg-container-profile">
+                <object data="images/profile.svg" type="image/svg+xml">
+                    Your browser does not support SVG
+                </object>
+            </div>
+            <div class="logout" onclick="navigateToLoginPage()">
+                <button><img src="images/Logout.png" alt="">Logout</button>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="navbar">
+                <div class="welcome-container">
+                    <h3>Welcome back, ABC bank</h3>
+                    <p>04 March 2024 | 4:31 PM</p>
+                </div>
+                <ul>
+                    <li></a><button class="icon-button" id="bell-icon-button"><img src="images/bell_icon.png"
+                                alt="Bell Icon" class="icon"></button></li>
+                    <li class="search-container"><input type="text" class="search-box" placeholder="Search..."></li>
+                    <!-- <li><button class="oval-button"><img src="images/user_icon.png" alt="User Icon"> Audit</button></li> -->
+                </ul>
+            </div>
+            <div class="content">
+                <section class="stats-exchange ">
+
+                    <div class="header-exchange">
+                        <h2>Currency Exchange</h2>
+                        <p>Real-time widget for currency exchange.</p>
+                    </div>
+
+
+
+                    <div class="container-exchange">
+                        <div class="date-exchange">Date for 20234-03-07/20:25:01 GMT +02:00</div>
+                        <div class="exchange-exchange">
+                            <div>
+                                <h1 style="text-align: left;">Exchange From</h1>
+                                <select>
+                                    <option>UAH</option>
+                                    <option>UAH</option>
+                                    <option>EUR</option>
+                                    <option>USD</option>
+                                    <option>NZD</option>
+                                    <option>CHF</option>
+                                </select>
+                                <div class="val-contain-exchange">
+                                    <input type="number" value="1500">
+                                    <div class="rate-exchange">1 UAH = 0.025 EUR</div>
+                                </div>
+                                <div class="history-exchange">View Currency Transfer History<img
+                                        src="assets/image 50.png" alt=""></div>
+                            </div>
+                            <div class="switch-exchange"><img src="images/e_exchange.png" alt=""></div>
+                            <div>
+                                <h1 style="text-align: left;">Exchange To</h1>
+                                <select>
+                                    <option>UAH</option>
+                                    <option>UAH</option>
+                                    <option>EUR</option>
+                                    <option>USD</option>
+                                    <option>NZD</option>
+                                    <option>CHF</option>
+                                </select>
+                                <div class="val-contain-exchange">
+                                    <input type="text" value="38,08" readonly>
+                                    <div class="rate-exchange">1 EUR = 39.99 UAH</div>
+                                </div>
+                                <div class="history-exchange">View Currency Transfer History <img
+                                        src="assets/image 50.png" alt=""></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        // document.getElementById('bell-icon-button').addEventListener('click', function () {
+        //     window.location.href = 'notification.html';
+        // });
+        function navigateToNewAccountPage() {
+            window.location.href = 'NewAccount.html'; // Replace with the actual URL of the new account page
+        }
+        function navigateToLoginPage() {
+            window.location.href = 'login.html'; // Replace with the actual URL of the new account page
+        }
+    </script>
+
+</body>
+
+</html>

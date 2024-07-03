@@ -170,7 +170,7 @@ html {
     padding: 5px 15px;
     border: none;
     border-radius: 20px;
-    background-color: #055f08;
+    background-color: rgba(0, 116, 56, 1);
     color: white;
     display: flex;
     align-items: center;
@@ -673,6 +673,7 @@ html {
     padding-right: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
+    cursor: pointer;
     border-radius: 20px;
     width: 20%;
     display: flex;

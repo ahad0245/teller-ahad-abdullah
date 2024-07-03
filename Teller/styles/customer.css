@@ -69,13 +69,7 @@ html {
     overflow: hidden;
     /* Ensure content does not overflow */
 }
-.svg-container{
-    margin-top: auto;
-    /* width: 99%;   */
-}
-.svg-container object{
-    width: 100%;  
-}
+
 .navbar {
     background-color: #ffffff;
     color: #000;
@@ -176,7 +170,7 @@ html {
     padding: 5px 15px;
     border: none;
     border-radius: 20px;
-    background-color: #055f08;
+    background-color: rgba(0, 116, 56, 1);
     color: white;
     display: flex;
     align-items: center;
@@ -200,8 +194,6 @@ html {
 
 .content h1 {
     margin-top: 0;
-    font-size: 25px;
-    font-weight: 700;
 }
 
 .profile-section {
@@ -274,165 +266,179 @@ html {
     color: rgb(250, 250, 250);
 }
 
-/* Add this to dashboard.css */
+/*  */
+/*  */
+/*  */
+.table-container {
+    width: 95%;
+    margin: 40px auto;
+    margin-top: 50px;
 
-.card-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    /* max-height: 500px; */
-    /* Adjust the maximum height as needed */
-    overflow-y: auto;
-    /* Enable vertical scrolling */
-
-}
-
-.card {
-    position: relative;
-    width: 90%;
     background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    /* align-items: center; */
-    padding: 10px;
+    position: relative;
 }
 
-.profile-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.profile-details {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.profile-text {
-    flex-grow: 1;
-    margin-right: 20px;
-}
-.profile-text h2 {
-    color: #007438;
-    margin: 0px;
-    margin-bottom: 3px;
-}
-.profile-text p {
-    color: #000000;
-    font-weight: 600;
-    margin: 0px;
-    margin-top: 1px;
-}
-.card-info {
+.vertical-labels {
+    position: absolute;
+    left: 0;
+    top: 0px;
+    /* bottom: 0; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 10px;
-    width: calc(100% - 100px);
-    /* Adjust width to accommodate profile image */
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    color: #007438;
+    /* Adjust color as needed */
+    font-weight: bold;
+    /* Adjust font weight as needed */
 }
 
-.account-details {
-    margin-bottom: 10px;
+.vertical-label {
+
+    margin-bottom: 7px;
 }
 
-.random-text {
-    margin-bottom: 10px;
-
-}
-
-.card-buttons {
+.top-buttons {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
-.card-button {
+.top-button {
+    margin-left: 10px;
     padding: 8px 16px;
+    background-color: #007438;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.card-button:nth-child(1) {
-    background-color: #3F1970;
-    /* Purple background */
-    color: white;
-}
-.card-button:nth-child(1):hover {
-    background-color: #1e0242;
-    /* Purple background */
-    color: white;
+.top-button:hover {
+    background-color: #005e2b;
 }
 
-.card-button:nth-child(2) {
-    background-color: #B3E7C0;
-    /* Light green background */
-    color: #007438;
-    /* Dark green text */
-}
-.card-button:nth-child(2):hover {
-    background-color: #6d9176;
-    /* Purple background */
-    color: white;
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.card-button:nth-child(3) {
-    background-color: rgba(255, 68, 64, 0.26);
-    /* Light green background */
-    color: rgba(255, 68, 64, 1)
-    /* Dark green text */
+thead {
+    background-color: #ffffff;
+    border-top: 1px solid #464545;
+    /* Add top border */
+    border-bottom: 1px solid #464545;
+    margin-bottom: 2px;
+    /* Add bottom border */
 }
 
-.view-detail-button {
-    position: absolute;
-    top: 10px;
-    /* Adjust top position */
-    right: 10px;
-    /* Adjust right position */
-    background-color: transparent;
-    color: #007438;
-    /* Light green text */
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
 }
 
-.view-detail-button:hover {
-    text-decoration: underline;
-    background-color: transparent;
-}
-
-.card-footer {
-    position: absolute;
-    bottom: 10px;
-    /* Adjust top position */
-    right: 10px;
-    /* Adjust right position */
-    background-color: transparent;
-    color: #070707;
-    /* Light green text */
-    border: none;
-}
-
-.card-footer .footer-line1 {
+th {
     font-weight: bold;
-    /* Example style for the first line */
 }
 
-.card-footer .footer-line2 {
-    color: #666;
-    /* Example style for the second line */
-    font-size: 14px;
-    /* Example font size */
+tbody tr:hover {
+    background-color: #ffffff;
+}
+
+
+.status-button {
+    padding: 5px 10px;
+    background-color: rgba(179, 231, 192, 1);
+    color: rgba(0, 116, 56, 1);
+    border: 0px solid #00ff7bb9;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.action-button {
+    padding: 5px 10px;
+    background-color: transparent;
+    color: #007438;
+    border: 0px solid rgba(179, 231, 192, 1);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* .action-button:hover {
+    background-color: #007438;
+    color: #ffffff;
+    border-color: #007438;
+} */
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.vertical-labels .vertical-label:nth-child(1) {
+    color: #000000;
+    font-weight: 700;
+    font-size: 25px;
+
+}
+
+.vertical-labels .vertical-label:nth-child(2) {
+    color: #444444;
+    font-weight: normal;
+}
+
+.top-buttons .top-button:nth-child(1) {
+    background-color: transparent;
+    color: #3f3f3f;
+    border-color: #747474;
+    border-width: 1px;
+    border-style: solid;
+
+}
+
+
+
+.top-buttons .top-button:nth-child(2) {
+    background-color: #007438;
+
+    color: #ffffff;
+
+}
+
+.top-buttons .top-button:nth-child(2):hover {
+    background-color: #00c961;
+
+}
+
+.top-buttons .top-button:nth-child(3) {
+    background-color: transparent;
+    color: #3f3f3f;
+    border-color: #747474;
+    border-width: 1px;
+    border-style: solid;
+
+}
+.svg-containerh {
+    margin-top: auto;
+    /* width: 99%;   */
+}
+
+.svg-containerh object {
+    width: 100%;
 }
 .svg-container-profile{
     margin-top: auto;
@@ -453,4 +459,57 @@ html {
 }
 .logout button img{
     padding-right: 15px;
+}
+.svg-container-profile{
+    margin-top: auto;
+    /* width: 99%;   */
+}
+.svg-container-profile object{
+    width: 100%;  
+}
+.logout button {
+    background-color: #007438;
+    color: #f3f1f1;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+.logout button img{
+    padding-right: 15px;
+}
+.documents-table-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+   
+}
+
+.documents-table-body .row {
+    display: flex;
+    width: 95%;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 9px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.documents-table-body .cell {
+    display: flex;
+    flex: 1;
+    padding: 8px;
+    text-align: left;
+    align-items: center;
+}
+.documents-table-body .cellh {
+    flex: 1;
+    padding: 8px;
+    text-align: left;
+    font-weight: bold;
 }

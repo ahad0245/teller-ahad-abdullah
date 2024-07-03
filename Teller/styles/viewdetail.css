@@ -1,4 +1,5 @@
 /* dashboard.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 body,
 html {
@@ -170,7 +171,7 @@ html {
     padding: 5px 15px;
     border: none;
     border-radius: 20px;
-    background-color: #055f08;
+    background-color: rgba(0, 116, 56, 1);
     color: white;
     display: flex;
     align-items: center;
@@ -198,13 +199,16 @@ html {
     font-size: 25px;
     font-weight: 700;
 }
-.svg-container{
+
+.svg-container {
     margin-top: auto;
     /* width: 99%;   */
 }
-.svg-container object{
-    width: 100%;  
+
+.svg-container object {
+    width: 100%;
 }
+
 .profile-section {
     margin-top: auto;
     margin-bottom: 100px;
@@ -415,16 +419,19 @@ html {
     background-color: #ffffff;
     position: relative;
     margin: 10px;
-    flex: 0.7; /* Adjust this value to make the left side smaller */
+    flex: 0.7;
+    /* Adjust this value to make the left side smaller */
     border-radius: 20px;
-    overflow: hidden; /* Ensure content stays within the box */
+    overflow: hidden;
+    /* Ensure content stays within the box */
     display: flex;
     flex-direction: column;
 }
 
 .content-right-side {
     display: flex;
-    flex: 2.3; /* Adjust this value to make the right side larger */
+    flex: 2.3;
+    /* Adjust this value to make the right side larger */
     flex-direction: column;
     margin: 10px;
     overflow: hidden;
@@ -438,7 +445,8 @@ html {
 
 .section1 {
     position: relative;
-    padding: 10px; /* Add padding to prevent overflow */
+    padding: 10px;
+    /* Add padding to prevent overflow */
     box-sizing: border-box;
     flex: 1;
     overflow-y: auto;
@@ -474,7 +482,8 @@ html {
 .section1-profile-info {
     align-items: flex-start;
     margin-left: 45px;
-    flex: 1; /* Make the profile info flexible */
+    flex: 1;
+    /* Make the profile info flexible */
 
 }
 
@@ -676,9 +685,9 @@ html {
     margin: 0px;
     margin-top: 10px;
     position: absolute;
-    top:750px;
+    top: 750px;
     width: 100%;
-    
+
 }
 
 .gradient-button {
@@ -699,7 +708,7 @@ html {
     background: linear-gradient(135deg, #1EA483, #5FB676, #A5C768);
 }
 
-.show-more-btn{
+.show-more-btn {
     background-color: #007438;
     color: #ffffff;
     padding-left: 15px;
@@ -708,6 +717,7 @@ html {
     padding-bottom: 5px;
     border-radius: 20px;
     width: 20%;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -715,13 +725,16 @@ html {
     margin-right: auto;
     margin-bottom: 10px;
 }
-.svg-container-profile{
+
+.svg-container-profile {
     margin-top: auto;
     /* width: 99%;   */
 }
-.svg-container-profile object{
-    width: 100%;  
+
+.svg-container-profile object {
+    width: 100%;
 }
+
 .logout button {
     background-color: #007438;
     color: #f3f1f1;
@@ -732,7 +745,203 @@ html {
     align-items: center;
     font-size: 15px;
 }
-.logout button img{
+
+.logout button img {
     padding-right: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.table-row span {
+    flex: 1;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+
+    position: fixed;
+    z-index: 1;
+
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 415px;
+    /* Could be more or less, depending on screen size */
+    height: 435px;
+    border-radius: 40px;
+    /* Could be more or less, depending on screen size */
+}
+
+.modal-content p {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 55px;
+}
+
+.modal-btn {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(234, 241, 237, 1);
+    height: 75px;
+    width: 95%;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(78, 78, 78, 1);
+    border-radius: 6px;
+    margin: 0px;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+}
+
+.modal-content input[type="text"] {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #007438;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.modal-content .info {
+    margin: 20px 0;
+}
+
+.modal-content .info span {
+    display: block;
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.modal-content .info .balance,
+.modal-content .info .limit {
+    color: rgba(0, 116, 56, 1);
+}
+
+/* .modal-content .info .limit::after {
+    content: ' •';
+    color: red;
+    font-size: 20px;
+    vertical-align: middle;
+} */
+
+.modal-content button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* align-self: center; */
+    width: 50%;
+    padding: 10px;
+    background-color: rgba(0, 116, 56, 1);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+ 
+}
+
+.btn{
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ margin-top: 50px;
+}
+/* Modal Content */
+.success-modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* padding: 20px; */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid #888;
+    width: 515px;
+
+    height: 435px;
+    border-radius: 40px;
+}
+.success-modal-content p {
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+}
+
+/* The Close Button */
+.modal-gif {
+    width: 172px;  
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-submit-btn {
+    width:  157px;
+    height: 42px;
+    background-color: #007438;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.modal-submit-btn:hover {
+    background-color: #005f2a;
+}
+.info-head{
+    font-weight: 600;
+    font-size: 23px;
+}
+.Sub_head{
+    font-weight: 800;
+    font-size: 19px;
+    color: #007438;
 }
 /*  */
