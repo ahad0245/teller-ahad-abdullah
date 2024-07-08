@@ -8,6 +8,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/transaction.css">
+    <style>
+        .profile {
+            display: flex;
+            align-items: center;
+            border: 1px solid white;
+            border-radius: 10px;
+            padding: 10px 5px;
+
+        }
+
+        .profile img {
+            padding-right: 5px;
+            
+        }
+
+        .profile-main {
+            text-align: left;
+        }
+
+        .profile p {
+            margin: 0px;
+
+            font-size: 15px;
+        }
+        .nav-detail{
+            margin-bottom: 10%;
+        }
+        .nav-detail p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .nav-detail p object {
+            padding-right: 10px;
+            height: 15px;
+            width: 15px;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,9 +65,23 @@
                 </li>
             </ul>
             <div class="svg-container-profile">
-                <object data="images/profile.svg" type="image/svg+xml">
+                <!-- <object data="images/profile.svg" type="image/svg+xml">
                     Your browser does not support SVG
-                </object>
+                </object> -->
+                <div class="profile">
+                    <img src="../Admin/assets/side/image 15.png" alt="">
+                    <div class="profile-main">
+
+                        <p>Profile</p>
+                        <p>hayat(Teller)</p>
+                    </div>
+                </div>
+                <div class="nav-detail">
+                    <p><object data="../Admin/assets/Ellipse 1064reddot.svg" type="image/svg+xml"></object> Employee
+                        Account</p>
+                    <p><object data="../Admin/assets/Ellipse 1064bluedot.svg" type="image/svg+xml"></object>Shared
+                        Account (Bank ABC)</p>
+                </div>
             </div>
             <div class="logout" onclick="navigateToLoginPage()">
                 <button><img src="images/Logout.png" alt="">Logout</button>
@@ -98,10 +152,84 @@
                             <div class="Sort">Sort <img src="images/image 37.png" alt="sort_img"></div>
                         </div>
                     </div>
-                    <div class="svg-container">
+                    <!-- <div class="svg-container">
                         <object data="images/Group 9409.svg" type="image/svg+xml" class="svg-obj1">
     
                         </object>
+                    </div> -->
+                    <div class="table">
+                        <div class="table-row table-header">
+                            <div class="table-cell">TID</div>
+                            <div class="table-cell">Date</div>
+                            <div class="table-cell">Description</div>
+                            <div class="table-cell">Credit</div>
+                            <div class="table-cell">Debit</div>
+                            <div class="table-cell">Balance</div>
+                            <div class="table-cell">Status</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell">256487</div>
+                            <div class="table-cell">23 Jan 2024</div>
+                            <div class="table-cell">Digital App Transfer: To : Uzma - ABC Bank</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell"><span class="status-success">Success</span></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell">256487</div>
+                            <div class="table-cell">23 Jan 2024</div>
+                            <div class="table-cell">ATM Funds Transfer; Fr: ABC Bank</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell"><span class="status-pending">Pending</span></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell">256487</div>
+                            <div class="table-cell">23 Jan 2024</div>
+                            <div class="table-cell">POS Sale - Card at Restaurant</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell"><span class="status-success">Success</span></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell">256487</div>
+                            <div class="table-cell">23 Jan 2024</div>
+                            <div class="table-cell">Cash Withdrawal</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell"><span class="status-success">Success</span></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell">256487</div>
+                            <div class="table-cell">23 Jan 2024</div>
+                            <div class="table-cell">Internal Funds Transfer: To Cdc Trust ABC Bank Income Opportunity Fund (a/c 2569 ***** 55687) - ABC Bank.</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell"><span class="status-failed">Failed</span></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell">256487</div>
+                            <div class="table-cell">23 Jan 2024</div>
+                            <div class="table-cell">Leslie Alexander</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell"><span class="status-success">Success</span></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell">256487</div>
+                            <div class="table-cell">Deposit</div>
+                            <div class="table-cell">Leslie Alexander</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell">BR 78,900</div>
+                            <div class="table-cell"><span class="status-pending">Pending</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -122,7 +250,7 @@
             window.location.href = 'viewdetail.html';
         });
         function navigateToLoginPage() {
-            window.location.href = 'login.html'; // Replace with the actual URL of the new account page
+            window.location.href = '../Index.html'; // Replace with the actual URL of the new account page
         }
         function OpenViewDetail() {
             window.location.href = 'viewdetail.html'; // Replace with the actual URL of the new account page

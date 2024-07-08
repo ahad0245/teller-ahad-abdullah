@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Bank ABC Logo">
+            </div>
+            <ul class="menu">
+                <li class="menu-item "><a href="dashboard.html"><img src="assets/side/image 1.png" alt="">Dashboard</a>
+                </li>
+                <li class="menu-item"><a href="branches.html"><img src="assets/side/image 5.png" alt="">Branches</a>
+                </li>
+                <li class="menu-item"><a href="Employees.html"><img src="assets/side/image 10.png" alt="">Employees</a>
+                </li>
+                <li class="menu-item active"><a href="Accounts.html"><img src="assets/side/image 3acc.png" alt="">Accounts</a>
+                </li>
+                <li class="menu-item"><a href="Customer Support.html"><img src="assets/side/image 10 (1).png"
+                            alt="">Customer Support</a></li>
+                <li class="menu-item"><a href="Transactions.html"><img src="assets/side/image 10 (2).png"
+                            alt="">Transactions</a></li>
+                <li class="menu-item"><a href="Currencyexchange.html"><img src="assets/side/image 10 (3).png"
+                            alt="">Currency Exchange</a></li>
+                <li class="menu-item "><a href="transferglobally.html"><img src="assets/side/image 10 (4).png"
+                            alt="">Transfer Globally</a></li>
+                <li class="menu-item"><a href="document.html"><img src="assets/side/image 10 (5).png"
+                            alt="">Documents</a></li>
+            </ul>
+
+
+            <div class="profile">
+                <img src="assets/side/image 15.png" alt="">
+                <div class="profile-main">
+
+                    <p>Profile</p>
+                    <p>Abdul Ahad (Employee)</p>
+                </div>
+            </div>
+            <div class="nav-detail">
+                <p><object data="assets/Ellipse 1064reddot.svg" type="image/svg+xml"></object> Employee Account</p>
+                <p><object data="assets/Ellipse 1064bluedot.svg" type="image/svg+xml"></object>Shared Account (Bank ABC)
+                </p>
+            </div>
+            <div class="logout">
+                <button><img src="assets/image 15 (1).png" alt="">Logout</button>
+            </div>
+        </nav>
+        <main class="main-content">
+            <header class="header">
+                <div class="admin-info">
+                    <h3>Admin Panel, ABC Bank</h1>
+                        <p>04 March 2024 | 4:31 PM</p>
+                </div>
+                <div class="actions">
+                    <a href="Customer Support.html">
+                        <img draggable="false" class="action-img-1" src="assets/Group 28.png" alt=""></a>
+                    <input type="search" class="action-search" placeholder="Search...">
+                  <!-- <button class="audit-btn"><img src="assets/image 24.png" alt=""> Audit</button> --> 
+                </div>
+            </header>
+
+
+
+
+
+
+
+
+            <section class="stats-transfer  ">
+
+                <div class="header-transfer ">
+                    <h2>Account</h2>
+                    <p>Here is the Comprehensive overview of account metrics available for analysis.</p>
+                </div>
+
+                <div class="card-container-accdash">
+                    <div class="card-accdash" onclick="navigateToNewAccountPage()">
+                        <img src="assets/d (1).png" alt="Card 1">
+                        <div class="card-info-accdash">
+                            <h2>New Account</h2>
+
+                        </div>
+                    </div>
+                    <div class="card-accdash" onclick="navigateToAccountlookupPage()">
+                        <img src="assets/d (2).png" alt="Card 2">
+                        <div class="card-info-accdash">
+                            <h2>Account look up</h2>
+
+                        </div>
+                    </div>
+                    <div class="card-accdash" onclick="navigateToAccountRequestPage()">
+                        <img src="assets/d (1).png" alt="Card 3">
+                        <div class="card-info-accdash">
+                            <h2>Account request</h2>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+
+
+        </main>
+    </div>
+    <script>document.getElementById('bell-icon-button').addEventListener('click', function () {
+            window.location.href = 'notification.html';
+        });
+        function navigateToNewAccountPage() {
+            window.location.href = 'NewAccount.html'; // Replace with the actual URL of the new account page
+        }
+        function navigateToAccountRequestPage() {
+            window.location.href = 'account.html'; // Replace with the actual URL of the new account page
+        }
+        function navigateToAccountlookupPage() {
+            window.location.href = 'Accountlookup.html'; // Replace with the actual URL of the new account page
+        }</script>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

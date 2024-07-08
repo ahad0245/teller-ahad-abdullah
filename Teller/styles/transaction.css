@@ -449,3 +449,60 @@ html {
     width: 100%;
 }
 /*  */
+.table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* border: 1px solid #ccc; */
+    border-collapse: collapse;
+}
+
+
+.table-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #0707075b;  
+    margin: 0px;
+    margin-bottom: 5px;
+    border-radius: 7px;
+}
+
+.table-header {
+    background-color: #ffffff;
+    font-weight: bold;
+    border: 1px solid #0707075b;
+    border-radius: 7px;
+}
+
+.table-cell {
+    flex: 1;
+    padding: 10px; 
+    text-align: center;
+}
+
+.table-cell:last-child {
+    border-right: none;
+}
+
+.status-success {
+    background-color: rgba(75, 199, 105, 0.42);
+    color: #007438;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.status-pending {
+    background-color: #00000036;
+    color: #6c757d;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.status-failed {
+    background-color: rgba(255, 68, 64, 0.19);
+    color: #FF4440;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+/*  */

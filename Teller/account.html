@@ -9,6 +9,46 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- <link rel="stylesheet" href="styles/dashboard.css"> -->
     <link rel="stylesheet" href="styles/notification.css">
+    <style>
+        .profile {
+            display: flex;
+            align-items: center;
+            border: 1px solid white;
+            border-radius: 10px;
+            padding: 10px 5px;
+
+        }
+
+        .profile img {
+            padding-right: 5px;
+            
+        }
+
+        .profile-main {
+            text-align: left;
+        }
+
+        .profile p {
+            margin: 0px;
+
+            font-size: 15px;
+        }
+        .nav-detail{
+            margin-bottom: 10%;
+        }
+        .nav-detail p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .nav-detail p object {
+            padding-right: 10px;
+            height: 15px;
+            width: 15px;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,9 +65,23 @@
                 </li>
             </ul>
             <div class="svg-container-profile">
-                <object data="images/profile.svg" type="image/svg+xml">
+                <!-- <object data="images/profile.svg" type="image/svg+xml">
                     Your browser does not support SVG
-                </object>
+                </object> -->
+                <div class="profile">
+                    <img src="../Admin/assets/side/image 15.png" alt="">
+                    <div class="profile-main">
+
+                        <p>Profile</p>
+                        <p>hayat(Teller)</p>
+                    </div>
+                </div>
+                <div class="nav-detail">
+                    <p><object data="../Admin/assets/Ellipse 1064reddot.svg" type="image/svg+xml"></object> Employee
+                        Account</p>
+                    <p><object data="../Admin/assets/Ellipse 1064bluedot.svg" type="image/svg+xml"></object>Shared
+                        Account (Bank ABC)</p>
+                </div>
             </div>
             <div class="logout" onclick="navigateToLoginPage()">
                 <button><img src="images/Logout.png" alt="">Logout</button>
@@ -139,7 +193,7 @@
             window.location.href = 'notification.html';
         });
         function navigateToLoginPage() {
-            window.location.href = 'login.html'; // Replace with the actual URL of the new account page
+            window.location.href = '../Index.html'; // Replace with the actual URL of the new account page
         }
         document.getElementById('OpenViewDetail').addEventListener('click', function () {
             window.location.href = 'viewdetail.html';

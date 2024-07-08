@@ -8,6 +8,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/BankTransfer.css">
+    <style>
+        .profile {
+            display: flex;
+            align-items: center;
+            border: 1px solid white;
+            border-radius: 10px;
+            padding: 10px 5px;
+
+        }
+
+        .profile img {
+            padding-right: 5px;
+            
+        }
+
+        .profile-main {
+            text-align: left;
+        }
+
+        .profile p {
+            margin: 0px;
+
+            font-size: 15px;
+        }
+        .nav-detail{
+            margin-bottom: 10%;
+        }
+        .nav-detail p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .nav-detail p object {
+            padding-right: 10px;
+            height: 15px;
+            width: 15px;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,9 +65,23 @@
                 </li>
             </ul>
             <div class="svg-container-profile">
-                <object data="images/profile.svg" type="image/svg+xml">
+                <!-- <object data="images/profile.svg" type="image/svg+xml">
                     Your browser does not support SVG
-                </object>
+                </object> -->
+                <div class="profile">
+                    <img src="../Admin/assets/side/image 15.png" alt="">
+                    <div class="profile-main">
+
+                        <p>Profile</p>
+                        <p>hayat(Teller)</p>
+                    </div>
+                </div>
+                <div class="nav-detail">
+                    <p><object data="../Admin/assets/Ellipse 1064reddot.svg" type="image/svg+xml"></object> Employee
+                        Account</p>
+                    <p><object data="../Admin/assets/Ellipse 1064bluedot.svg" type="image/svg+xml"></object>Shared
+                        Account (Bank ABC)</p>
+                </div>
             </div>
             <div class="logout" onclick="navigateToLoginPage()">
                 <button><img src="images/Logout.png" alt="">Logout</button>
@@ -54,26 +108,33 @@
                 <div class="content-bank-transfer">
                     <p class="text1">Deposite money into an account</p>
                     <div class="content-bank-transfer-heading"><img src="images/Mask group.png"> Bank transfer</div>
-                    <p class="text1">Amount</p>
-                    <div class="dropdown-container">
-                        <!-- <div class="dropdown">
+                    <!-- <p class="text1">Amount</p> -->
+                    <!-- <div class="dropdown-container">
+                        <div class="dropdown">
                             <span class="dropdown-text">Country</span>
                             <select>
                                 <option value="option1">Select</option>
                                 <option value="option2">Option 2</option>
                                 <option value="option3">Option 3</option>
                             </select>
-                        </div> -->
+                        </div>
                         <div class="dropdown">
                             <span class="dropdown-text">Bank</span>
                             <select>
-                                <option value="option1">Select</option>
-                                <option value="option2">Option B</option>
-                                <option value="option3">Option C</option>
+                                <option value="option1">Nib International Bank</option>
+                                <option value="option2">Abay Bank B</option>
+                                <option value="option3">Addis International Bank C</option>
+                                <option value="option4">Awash International Bank</option>
+                                <option value="option5">Bank of Abyssinia</option>
+                                <option value="option6">Berhan International Bank</option>
+                                <option value="option7">Bunna International Bank</option>
+                                <option value="option8">Commercial Bank of Ethiopia (State Bank)</option>
+                                <option value="option9">Cooperative Bank of Oromia</option>
+                                <option value="option10">Dashen Bank</option>
                             </select>
                         </div>
                     </div>
-                    <!-- Text input field -->
+                   
 
                     <div style="display: flex;">
                         <div class="text-input-container">
@@ -91,7 +152,115 @@
                     </div>
                     <div class="Transfer-btn" id="submitBtn">Transfer</div>
                     <p class="name">By clicking Transfer, I authorize Scale to initiate the transaction detailed above.
-                    </p>
+                    </p> -->
+                
+                
+                  <!-- <button id="bank-button" class="button-transfer" onclick="showBankTransfer()"
+                        style="display:none;">Go to Bank Transfer</button>
+                    <button id="telbur-button" class="button-transfer" onclick="showTelbur()">Go to Telbur Transfer</button>
+                    <div id="bank-transfer-form">
+                        <div class="dropdown-container">
+                            <div class="dropdown">
+                                <span class="dropdown-text">Country</span>
+                                <select>
+                                    <option value="option1">Select</option>
+                                    <option value="option2">Option 2</option>
+                                    <option value="option3">Option 3</option>
+                                </select>
+                            </div>
+                            <div class="dropdown">
+                                <span class="dropdown-text">Bank</span>
+                                <select>
+                                    <option value="option1">Nib International Bank</option>
+                                    <option value="option2">Abay Bank B</option>
+                                    <option value="option3">Addis International Bank C</option>
+                                    <option value="option4">Awash International Bank</option>
+                                    <option value="option5">Bank of Abyssinia</option>
+                                    <option value="option6">Berhan International Bank</option>
+                                    <option value="option7">Bunna International Bank</option>
+                                    <option value="option8">Commercial Bank of Ethiopia (State Bank)</option>
+                                    <option value="option9">Cooperative Bank of Oromia</option>
+                                    <option value="option10">Dashen Bank</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div style="display: flex;">
+                            <div class="text-input-container">
+                                <span class="dropdown-text">Transfer From</span>
+                                <input type="text" id="from-account" name="fromAccount" placeholder="Account Number">
+                            </div>
+                            <div class="text-input-container">
+                                <span class="dropdown-text">Transfer to</span>
+                                <input type="text" id="to-account" name="toAccount" placeholder="Account Number">
+                            </div>
+                        </div>
+                        <div class="text-input-container2">
+                            <span class="dropdown-text">Enter Amount</span>
+                            <input type="text" id="amount" name="amount" placeholder="Enter Amount">
+                        </div>
+                        <div class="Transfer-btn" id="submitBtn">Transfer</div>
+                        <p class="name">By clicking Transfer, I authorize Scale to initiate the transaction detailed
+                            above.</p>
+                    </div>
+                    <div id="telbur-form" style="display:none;">
+                        <div class="text-input-container2">
+                            <span class="dropdown-text">Telbur ID</span>
+                            <input type="text" id="telbur-id" name="telburId" placeholder="Telbur ID">
+                        </div>
+                        <div class="text-input-container2">
+                            <span class="dropdown-text">Enter Amount</span>
+                            <input type="text" id="telbur-amount" name="telburAmount" placeholder="Enter Amount">
+                        </div>
+                        <div class="Transfer-btn" id="submitTelburBtn">Transfer</div>
+                        <p class="name">By clicking Transfer, I authorize Scale to initiate the Telbur transaction
+                            detailed above.</p>
+                    </div> -->
+                    
+                    <form class="form-transfer">
+                        <div class="form-group-transfer">
+                            <label for="country-transfer" class="label-transfer">Country</label>
+                            <!-- <select id="country-transfer" class="input-transfer">
+                                <option value="">Select</option>
+                               
+                            </select> -->
+                        </div>
+                        <div class="form-group-transfer">
+                            <label for="bank-transfer" class="label-transfer">Bank</label>
+                            <select id="bank-transfer" class="input-transfer">
+                                <option value="">Select</option>
+                                <option value="option1">Nib International Bank</option>
+                                <option value="option2">Abay Bank B</option>
+                                <option value="option3">Addis International Bank C</option>
+                                <option value="option4">Awash International Bank</option>
+                                <option value="option5">Bank of Abyssinia</option>
+                                <option value="option6">Berhan International Bank</option>
+                                <option value="option7">Bunna International Bank</option>
+                                <option value="option8">Commercial Bank of Ethiopia (State Bank)</option>
+                                <option value="option9">Cooperative Bank of Oromia</option>
+                                <option value="option10">Dashen Bank</option>
+                            </select>
+                        </div>
+                        <div class="form-group-transfer">
+                            <label for="from-account-transfer" class="label-transfer">Transfer from</label>
+                            <input type="text" id="from-account-transfer" class="input-transfer" placeholder="Account Number">
+                        </div>
+                        <div class="form-group-transfer">
+                            <label for="to-account-transfer" class="label-transfer">Transfer to</label>
+                            <input type="text" id="to-account-transfer" class="input-transfer" placeholder="Account Number">
+                        </div>
+                        <div class="form-group-transfer">
+                            <label for="amount-transfer" class="label-transfer">Enter Amount</label>
+                            <input type="text" id="amount-transfer" class="input-transfer" placeholder="Enter Amount">
+                        </div>
+                        <div class="Transfer-btn" id="submitBtn">Transfer</div>
+                        <p class="disclaimer-transfer">By clicking Transfer, I authorize Scale to initiate the transaction detailed above.</p>
+                    </form>
+
+                
+                
+                
+                
+                
                 </div>
             </div>
         </div>
@@ -112,7 +281,7 @@
             window.location.href = 'notification.html';
         });
         function navigateToLoginPage() {
-            window.location.href = 'login.html'; // Replace with the actual URL of the new account page
+            window.location.href = '../Index.html'; // Replace with the actual URL of the new account page
         }
         // 
         // Get the modal

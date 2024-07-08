@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        body,
+        html {
+            height: 100%;
+            width: 100vw;
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .left-side {
+            flex: 1;
+            background-color: #007438;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .text-center {
+            max-width: 80%;
+        }
+
+        .right-side {
+            flex: 1.5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .logo {
+            width: 300px;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            width: 100%;
+            filter: drop-shadow(22);
+            filter: drop-shadow(1px 5px 9px gray);
+            max-width: 400px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-container h2 {
+            margin-bottom: 10px;
+            font-family: Poppins;
+            font-size: 25px;
+            font-weight: 600;
+            line-height: 37.5px;
+        }
+
+        .login-container p {
+            margin-bottom: 20px;
+            color: #00000073;
+            font-family: Poppins;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 27px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 100%;
+            height: 45px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 15px 20px;
+            background-color: #007438;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h1 {
+            font-size: 60px;
+            line-height: 1.4;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-side">
+            <div class="text-center">
+                <div class="svg-container-profile">
+                    <object data="Teller/images/login.svg" type="image/svg+xml">
+                        Your browser does not support SVG
+                    </object>
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            <img src="Teller/images/LOGO.png" alt="Logo" class="logo">
+            <div class="login-container">
+                <h2>Login</h2>
+                <p>Please enter your forum details</p>
+                <form id="login-form">
+                    <div class="input-group">
+                        <input type="text" id="username" name="username" placeholder="Username" value="teller" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" placeholder="Password" value="123"
+                            required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                <p style="color:#007438;">Forget Password</p>
+                <p>Don’t have an account? <a href="#" style="color:#007438;">Register</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+            login();
+        });
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // You can add authentication logic here.
+            // For now, we'll just redirect to the selected dashboard.
+
+            if (username && password) { // Simple check
+                let dashboard;
+                if (username === 'admin') {
+                    dashboard = 'admin';
+                } else if (username === 'manager') {
+                    dashboard = 'manager';
+                } else {
+                    dashboard = 'Teller';
+                }
+
+                window.location.href = dashboard + '/index.html';
+            } else {
+                alert('Please enter username and password');
+            }
+        }
+    </script>
+</body>
+
+</html>

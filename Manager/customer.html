@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document </title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/customer.css">
+    <style>
+        .profile {
+            display: flex;
+            align-items: center;
+            border: 1px solid white;
+            border-radius: 10px;
+            padding: 10px 5px;
+
+        }
+
+        .profile img {
+            padding-right: 5px;
+            
+        }
+
+        .profile-main {
+            text-align: left;
+        }
+
+        .profile p {
+            margin: 0px;
+
+            font-size: 15px;
+        }
+        .nav-detail{
+            margin-bottom: 10%;
+        }
+        .nav-detail p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .nav-detail p object {
+            padding-right: 10px;
+            height: 15px;
+            width: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <img src="images/logo_white.png" alt="Logo" class="sidebar-logo">
+            <ul>
+                <li><a href="account.html"><img src="images/image (3).png" alt="Account Icon">Dashboard</a></li>
+                <li><a href="dashboard.html"><img src="images/image (1).png" alt="Dashboard Icon">Accounts</a></li>
+                <li><a href="transaction.html"><img src="images/e_sideBar (2).png" alt="Account Icon">Customers</a>
+                </li>
+                <li><a href="Loan.html"><img src="images/e_sideBar (3).png" alt="Customer Icon">Loan</a></li>
+                <li><a href="accountLookup.html"><img src="images/image (4).png" alt="Transaction Icon">Transaction</a>
+                </li>
+                <li><a href="CurrencyExchange.html"><img src="images/e_sideBar (4).png" alt="Account Icon">Currency
+                        Exchange</a>
+                </li>
+                <li><a href="Transfer.html"><img src="images/e_sideBar (5).png" alt="Account Icon">Transfer
+                        Globally</a></li>
+                <li class="Active-tab"><a href="customer.html"><img src="images/e_sideBar (1).png" alt="Customer Icon">Document</a></li>
+            </ul>
+            <div class="svg-container-profile">
+                <!-- <object data="images/profile.svg" type="image/svg+xml">
+                    Your browser does not support SVG
+                </object> -->
+                <div class="profile">
+                    <img src="../Admin/assets/side/image 15.png" alt="">
+                    <div class="profile-main">
+
+                        <p>Profile</p>
+                        <p>hayat(Manager)</p>
+                    </div>
+                </div>
+                <div class="nav-detail">
+                    <p><object data="../Admin/assets/Ellipse 1064reddot.svg" type="image/svg+xml"></object> Employee
+                        Account</p>
+                    <p><object data="../Admin/assets/Ellipse 1064bluedot.svg" type="image/svg+xml"></object>Shared
+                        Account (Bank ABC)</p>
+                </div>
+            </div>
+            <div class="logout" onclick="navigateToLoginPage()">
+                <button><img src="images/Logout.png" alt="">Logout</button>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="navbar">
+                <div class="welcome-container">
+                    <h3>Welcome back, ABC bank</h3>
+                    <p>04 March 2024 | 4:31 PM</p>
+                </div>
+                <ul>
+                    <li></a><button class="icon-button" id="bell-icon-button"><img src="images/bell_icon.png"
+                                alt="Bell Icon" class="icon"></button></li>
+                    <li class="search-container"><input type="text" class="search-box" placeholder="Search..."></li>
+                    <!-- <li><button class="oval-button"><img src="images/user_icon.png" alt="User Icon"> Audit</button></li> -->
+                </ul>
+            </div>
+            <div class="content">
+                <div class="documents-container">
+                    <h2>Document's List</h2>
+                    <p>Here is the list of all Documents.</p>
+                    <div class="tab-menu">
+                        <button class="tab active">All</button>
+                        <button class="tab">Statements</button>
+                        <button class="tab">Contracts</button>
+                        <button class="tab">Transaction receipts</button>
+                        <button class="tab">Fax</button>
+                        <button class="upload-button" onclick="Uploaddoc()">Upload Documents</button>
+                    </div>
+
+                    <div class="documents-table-body">
+                       
+                        <div class="row">
+                            <div class="cellh">Account #</div>
+                            <div class="cellh">Document Type</div>
+                            <div class="cellh">Namer</div>
+                            <div class="cellh">Phone No.</div>
+                            <div class="cellh">Account Status</div>
+                            <div class="cellh">Address</div>
+                            <div class="cellh">Action</div>
+                            <div class="cellh">Share</div>
+                        </div>
+                    
+                    </div>
+                    <div class="documents-table-body">   
+                        <div class="row">
+                            <div class="cell">#256487</div>
+                            <div class="cell"><img src="images/image 44.png" alt="image">Contract</div>
+                            <div class="cell">Leslie Alexander</div>
+                            <div class="cell">(702) 555-0122</div>
+                            <div class="cell"><span class="status active">Active</span></div>
+                            <div class="cell">Gelsenkirchen</div>
+                            <div class="cell"><a href="viewdetail.html" class="view-details">View Details</a></div>
+                            <div class="cell"><a href="#" class="share-icon"></a></div>
+                        </div>
+                        <div class="row">
+                            <div class="cell">#256487</div>
+                            <div class="cell"><img src="images/image 46.png" alt="image">Statement</div>
+                            <div class="cell">Leslie Alexander</div>
+                            <div class="cell">(702) 555-0122</div>
+                            <div class="cell"><span class="status active">Active</span></div>
+                            <div class="cell">Gelsenkirchen</div>
+                            <div class="cell"><a href="viewdetail.html" class="view-details">View Details</a></div>
+                            <div class="cell"><a href="#" class="share-icon"></a></div>
+                        </div>
+                        <div class="row">
+                            <div class="cell">#256487</div>
+                            <div class="cell"><img src="images/image 45.png" alt="image">Transaction receipt</div>
+                            <div class="cell">Leslie Alexander</div>
+                            <div class="cell">(702) 555-0122</div>
+                            <div class="cell"><span class="status active">Active</span></div>
+                            <div class="cell">Gelsenkirchen</div>
+                            <div class="cell"><a href="viewdetail.html" class="view-details">View Details</a></div>
+                            <div class="cell"><a href="#" class="share-icon"></a></div>
+                        </div>
+                        <div class="row">
+                            <div class="cell">#256487</div>
+                            <div class="cell"><img src="images/image 46 (1).png" alt="image">Fax</div>
+                            <div class="cell">Leslie Alexander</div>
+                            <div class="cell">(702) 555-0122</div>
+                            <div class="cell"><span class="status active">Active</span></div>
+                            <div class="cell">Gelsenkirchen</div>
+                            <div class="cell"><a href="viewdetail.html" class="view-details">View Details</a></div>
+                            <div class="cell"><a href="#" class="share-icon"></a></div>
+                        </div>
+                      
+                    </div>
+                    <!-- <div class="svg-container">
+                        <object data="images/overall.svg" type="image/svg+xml">
+                            Your browser does not support SVG
+                        </object>
+                    </div> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        document.getElementById('bell-icon-button').addEventListener('click', function () {
+            window.location.href = 'notification.html';
+        });
+        function navigateToLoginPage() {
+            window.location.href = 'login.html'; // Replace with the actual URL of the new account page
+        }
+        function Uploaddoc(){
+            window.location.href = 'UploadDoc.html'; // Replace with the actual URL of the new account page
+        }
+    </script>
+
+</body>
+
+</html>

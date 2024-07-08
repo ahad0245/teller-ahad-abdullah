@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Bank ABC Logo">
+            </div>
+            <ul class="menu">
+                <li class="menu-item active"><a href="dashboard.html"><img src="assets/side/image 1.png"
+                            alt="">Dashboard</a></li>
+                <li class="menu-item"><a href="branches.html"><img src="assets/side/image 5.png" alt="">Branches</a>
+                </li>
+                <li class="menu-item"><a href="Employees.html"><img src="assets/side/image 10.png" alt="">Employees</a>
+                </li>
+                <li class="menu-item"><a href="Accounts.html"><img src="assets/side/image 3acc.png" alt="">Accounts</a>
+                </li>
+                <li class="menu-item"><a href="Customer Support.html"><img src="assets/side/image 10 (1).png"
+                            alt="">Customer Support</a></li>
+                <li class="menu-item"><a href="Transactions.html"><img src="assets/side/image 10 (2).png"
+                            alt="">Transactions</a></li>
+                <li class="menu-item"><a href="Currencyexchange.html"><img src="assets/side/image 10 (3).png"
+                            alt="">Currency Exchange</a></li>
+                <li class="menu-item"><a href="transferglobally.html"><img src="assets/side/image 10 (4).png"
+                            alt="">Transfer Globally</a></li>
+                <li class="menu-item"><a href="document.html"><img src="assets/side/image 10 (5).png"
+                            alt="">Documents</a></li>
+            </ul>
+
+
+            <div class="profile">
+                <img src="assets/side/image 15.png" alt="">
+                <div class="profile-main">
+
+                    <p>Profile</p>
+                    <p>Abdul Ahad (Employee)</p>
+                </div>
+            </div>
+            <div class="nav-detail">
+                <p><object data="assets/Ellipse 1064reddot.svg" type="image/svg+xml"></object> Employee Account</p>
+                <p><object data="assets/Ellipse 1064bluedot.svg" type="image/svg+xml"></object>Shared Account (Bank ABC)
+                </p>
+            </div>
+
+            <div class="logout">
+                <button><img src="assets/image 15 (1).png" alt="">Logout</button>
+            </div>
+        </nav>
+        <main class="main-content">
+            <header class="header">
+                <div class="admin-info">
+                    <h3>Admin Panel, ABC Bank</h1>
+                        <p>04 March 2024 | 4:31 PM</p>
+                </div>
+                <div class="actions">
+                    <a href="Customer Support.html">
+                        <img draggable="false" class="action-img-1" src="assets/Group 28.png" alt=""></a>
+                    <input type="search" class="action-search" placeholder="Search...">
+                    <!-- <button class="audit-btn"><img src="assets/image 24.png" alt=""> Audit</button> -->
+                </div>
+            </header>
+            <section class="stats">
+                <div class="stat-card">
+                    <img class="stat-card-img-1" src="assets/admin/image 27.png" alt="">
+                    <div class="stat-card-content">
+                        <p>Bank Profit</p>
+                        <br>
+                        <h3>BR 45836,25.333</h3>
+
+                    </div>
+                    <img draggable="false" class="stat-card-img-2" src="assets/admin/Group 32.png" alt="">
+                </div>
+                <div class="stat-card">
+                    <img class="stat-card-img-1" src="assets/admin/image 27 (1).png" alt="">
+                    <div class="stat-card-content">
+                        <p>Employees Working today</p>
+                        <br>
+                        <h3>430</h3>
+                    </div>
+                    <img class="stat-card-img-2" src="assets/admin/Group 32.png" alt="">
+                </div>
+                <div class="stat-card">
+                    <img class="stat-card-img-1" src="assets/admin/image 27 (2).png" alt="">
+                    <div class="stat-card-content">
+                        <p>This week's card spending</p>
+                        <br>
+                        <h3>430</h3>
+                    </div>
+                    <img class="stat-card-img-2" src="assets/admin/Group 32.png" alt="">
+                </div>
+                <div class="stat-card">
+                    <img class="stat-card-img-1" src="assets/admin/image 27 (3).png" alt="">
+                    <div class="stat-card-content">
+                        <p>Total Customer</p>
+                        <br>
+                        <h3>4563,1336547</h3>
+                    </div>
+                    <img class="stat-card-img-2" src="assets/admin/Group 32.png" alt="">
+                </div>
+            </section>
+
+            <!-- <div class="dash">
+                <div class="dash-item">
+                    <h2>New Customers</h2>
+                    <p class="value">12657</p>
+                    <p class="increase"><img class="icon" src="data:image/svg+xml;base64,..." alt="Increase icon">+2.74%</p>
+                </div>
+                <div class="dash-item">
+                    <h2>Invoices overdue</h2>
+                    <p class="value">150</p>
+                    <p class="decrease"><img class="icon" src="data:image/svg+xml;base64,..." alt="Decrease icon">+2.5%</p>
+                </div>
+                <div class="dash-item">
+                    <h2>Board Meeting</h2>
+                    <p>March 20th 02:00 pm</p>
+                    <p>You have been invited to attend a meeting of the board director's.</p>
+                </div>
+                <div class="dash-item chart svg-container">
+                    <img src="data:image/svg+xml;base64,..." alt="Revenue chart">
+                </div>
+                <div class="bank">
+                    <div class="dash-item">
+                        <h2>Bank Profit</h2>
+                        <p class="value">$6,421.10</p>
+                        <p class="increase"><img class="icon" src="data:image/svg+xml;base64,..." alt="Increase icon">+2.5%</p>
+                        <div class="svg-container">
+                            <img src="data:image/svg+xml;base64,..." alt="Bank profit chart">
+                        </div>
+                    </div>
+                    <div class="dash-item">
+                        <h2>Bank Expends</h2>
+                        <p class="value">$561.34</p>
+                        <p class="decrease"><img class="icon" src="data:image/svg+xml;base64,..." alt="Decrease icon">10%</p>
+                        <div class="svg-container">
+                            <img src="data:image/svg+xml;base64,..." alt="Bank expends chart">
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <section>
+                <object class="full-image" type="image/svg+xml" data="assets/admin/Group 9498.svg"></object>
+
+
+            </section>
+            <!-- <section class="charts">
+                <div class="chart-card">
+                    <p>New Customers</p>
+                    
+                    <h3>12657</h3>
+                    <p class="change up">+2.74%</p>
+                </div>
+                <div class="chart-card">
+                    <p>Invoices overdue</p>
+                    <h3>150</h3>
+                    <p class="change down">+2.5%</p>
+                </div>
+                <div class="chart-card">
+                    <p>Revenue</p>
+                    <canvas id="revenueChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <p>Bank Profit</p>
+                    <h3>$6,421.10</h3>
+                    <canvas id="profitChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <p>Bank Expends</p>
+                    <h3>$561.34</h3>
+                    <canvas id="expendsChart"></canvas>
+                </div>
+            </section>
+            <section class="meeting">
+                <p>Board Meeting</p>
+                <p>March 20th 02:00 PM</p>
+                <p>You have been invited to attend a meeting of the board directors.</p>
+            </section> -->
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

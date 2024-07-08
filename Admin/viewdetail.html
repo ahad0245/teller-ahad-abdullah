@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            /* max-height: 500px; */
+            /* Adjust the maximum height as needed */
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+
+        }
+
+        .card {
+            position: relative;
+            width: 90%;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            /* align-items: center; */
+            padding: 10px;
+        }
+
+        .profile-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .profile-details {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .profile-text {
+            flex-grow: 1;
+            margin-right: 20px;
+        }
+
+        .card-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px;
+            width: calc(100% - 100px);
+            /* Adjust width to accommodate profile image */
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        .account-details {
+            margin-bottom: 10px;
+        }
+
+        .random-text {
+            margin-bottom: 10px;
+
+        }
+
+        .card-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .card-button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .card-button:nth-child(1) {
+            background-color: #7d3cff;
+            /* Purple background */
+            color: white;
+        }
+
+        .card-button:nth-child(2) {
+            background-color: #8cc63f;
+            /* Light green background */
+            color: #1f3615;
+            /* Dark green text */
+        }
+
+        .view-detail-button {
+            position: absolute;
+            top: 10px;
+            /* Adjust top position */
+            right: 10px;
+            /* Adjust right position */
+            background-color: transparent;
+            color: #8cc63f;
+            /* Light green text */
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+
+        .view-detail-button:hover {
+            text-decoration: underline;
+            background-color: transparent;
+        }
+
+        .card-footer {
+            position: absolute;
+            bottom: 10px;
+            /* Adjust top position */
+            right: 10px;
+            /* Adjust right position */
+            background-color: transparent;
+            color: #070707;
+            /* Light green text */
+            border: none;
+        }
+
+        .card-footer .footer-line1 {
+            font-weight: bold;
+            /* Example style for the first line */
+        }
+
+        .card-footer .footer-line2 {
+            color: #666;
+            /* Example style for the second line */
+            font-size: 14px;
+            /* Example font size */
+        }
+
+        /*  */
+        .content-left-side {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            position: relative;
+            margin: 10px;
+            flex: 0.7;
+            /* Adjust this value to make the left side smaller */
+            border-radius: 20px;
+            overflow: hidden;
+            /* Ensure content stays within the box */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-right-side {
+            display: flex;
+            flex: 2.3;
+            /* Adjust this value to make the right side larger */
+            flex-direction: column;
+            margin: 10px;
+            overflow: hidden;
+        }
+
+        .content-row {
+            display: flex;
+            flex-direction: row;
+            height: 100vh
+        }
+
+        .section1 {
+            position: relative;
+            padding: 10px;
+            /* Add padding to prevent overflow */
+            box-sizing: border-box;
+            flex: 1;
+            overflow-y: auto;
+
+        }
+
+        .section1-button {
+            display: flex;
+            position: absolute;
+            top: 30px;
+            right: 10px;
+            transform: translateY(-50%);
+            background-color: #007438;
+            /* Example background color */
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            align-items: center;
+        }
+
+        .section1-profile-section {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            align-items: start;
+            width: 100%;
+            margin-bottom: 20px;
+            margin-top: 25px;
+        }
+
+        .section1-profile-info {
+            align-items: flex-start;
+            margin-left: 45px;
+            flex: 1;
+            /* Make the profile info flexible */
+
+        }
+
+        .section1-profile-info h4 {
+            color: #030303;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 0px;
+
+        }
+
+        .section1-profile-info p {
+            color: #555;
+            font-size: 14px;
+            margin: 0;
+
+        }
+
+        .section1-info {
+            position: relative;
+            margin-top: 20px;
+            flex: 1;
+            margin-bottom: 50px;
+        }
+
+        .section1-info p {
+            color: #555;
+            font-size: 14px;
+            margin: 0;
+            margin-bottom: 3px;
+        }
+
+        .section1-info h4 {
+            color: #050505;
+            font-size: 14px;
+            margin: 0;
+            margin-bottom: 25px;
+        }
+
+        .section1-big-info {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            left: 20px;
+            top: 510px;
+        }
+
+        .section1-big-info p {
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            margin: 0;
+            margin-bottom: 3px;
+        }
+
+        .big-info-subsection {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+        }
+
+        .big-info-subsection-backdetail {
+            display: flex;
+            flex-direction: column;
+            margin-left: 15px;
+            align-items: flex-start;
+            /* margin-bottom: 20px; */
+        }
+
+        .big-info-subsection-backdetail p {
+            color: #555;
+            font-size: 14px;
+            margin: 0;
+            margin-bottom: 2px;
+            margin-top: 20px;
+        }
+
+        .big-info-subsection-backdetail h4 {
+            color: #050505;
+            font-size: 14px;
+            margin: 0;
+            margin-bottom: 25px;
+        }
+
+
+
+
+
+
+
+
+
+        .section2 {
+            display: flex;
+            /* flex-wrap: wrap; */
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+            /* max-width: 1070px; */
+            /* background-color: #070707; */
+
+        }
+
+        .section2-card {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding-left: 10px;
+            padding-right: 50px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin: 10px;
+            width: 27%;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section2-card-row {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .section2-card h3 {
+            margin-top: 40px;
+        }
+
+        .section2-card-row p {
+            margin-left: 20px;
+            font-weight: 400;
+            font-size: 20px;
+        }
+
+        .section2-card-row h3 {
+
+            margin-left: 20px;
+            font-weight: 700;
+            font-size: 24px;
+        }
+
+
+
+
+
+
+
+        .section3 {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            height: 80%;
+            margin: 10px;
+            border-radius: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 20px;
+            overflow: auto;
+        }
+
+        .transaction-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .transaction-table th,
+        .transaction-table td {
+            padding: 0;
+            /* Remove default padding */
+            border: none;
+            /* Remove default borders */
+        }
+
+        .table-header,
+        .table-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .table-header {
+            font-weight: bold;
+        }
+
+        .table-header span,
+        .table-row span {
+            flex: 1;
+            padding: 5px;
+        }
+
+        /*  */
+        .section1-3-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            margin: 0px;
+            margin-top: 10px;
+            position: absolute;
+            top: 750px;
+            width: 100%;
+
+        }
+
+        .gradient-button {
+            width: 80%;
+            /* Adjust the width as needed */
+            height: 40px;
+            /* Adjust the height as needed */
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #A5C768, #5FB676, #1EA483);
+            transition: background 0.3s;
+        }
+
+        .gradient-button:hover {
+            background: linear-gradient(135deg, #1EA483, #5FB676, #A5C768);
+        }
+
+        .show-more-btn {
+            background-color: #007438;
+            color: #ffffff;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-radius: 20px;
+            width: 20%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 10px;
+        }
+
+        .svg-container-profile {
+            margin-top: auto;
+            /* width: 99%;   */
+        }
+
+        .svg-container-profile object {
+            width: 100%;
+        }
+
+        .logout button {
+            background-color: #007438;
+            color: #f3f1f1;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+        }
+
+        .logout button img {
+            padding-right: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        .table-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .table-row span {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+
+            position: fixed;
+            z-index: 1;
+
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 415px;
+            /* Could be more or less, depending on screen size */
+            height: 435px;
+            border-radius: 40px;
+            /* Could be more or less, depending on screen size */
+        }
+
+        .modal-content p {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 55px;
+        }
+
+        .modal-btn {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(234, 241, 237, 1);
+            height: 75px;
+            width: 95%;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 20px;
+            font-weight: 400;
+            color: rgba(78, 78, 78, 1);
+            border-radius: 6px;
+            margin: 0px;
+            margin-bottom: 20px;
+            cursor: pointer;
+
+        }
+
+        .modal-content input[type="text"] {
+            width: 95%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #007438;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .modal-content .info {
+            margin: 20px 0;
+        }
+
+        .modal-content .info span {
+            display: block;
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .modal-content .info .balance,
+        .modal-content .info .limit {
+            color: rgba(0, 116, 56, 1);
+        }
+
+        /* .modal-content .info .limit::after {
+    content: ' •';
+    color: red;
+    font-size: 20px;
+    vertical-align: middle;
+} */
+
+        .modal-content button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* align-self: center; */
+            width: 50%;
+            padding: 10px;
+            background-color: rgba(0, 116, 56, 1);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+
+        }
+
+        .btn {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        /* Modal Content */
+        .success-modal-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+            background-color: #fefefe;
+            margin: 15% auto;
+            /* padding: 20px; */
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border: 1px solid #888;
+            width: 515px;
+
+            height: 435px;
+            border-radius: 40px;
+        }
+
+        .success-modal-content p {
+            font-weight: 700;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        /* The Close Button */
+        .modal-gif {
+            width: 172px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-submit-btn {
+            width: 157px;
+            height: 42px;
+            background-color: #007438;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        .modal-submit-btn:hover {
+            background-color: #005f2a;
+        }
+
+        .info-head {
+            font-weight: 600;
+            font-size: 23px;
+        }
+
+        .Sub_head {
+            font-weight: 800;
+            font-size: 19px;
+            color: #007438;
+        }
+
+        .modal-btn-img {
+            height: 40px;
+            width: 40px;
+        }
+
+        /*  */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Bank ABC Logo">
+            </div>
+            <ul class="menu">
+                <li class="menu-item "><a href="dashboard.html"><img src="assets/side/image 1.png" alt="">Dashboard</a>
+                </li>
+                <li class="menu-item"><a href="branches.html"><img src="assets/side/image 5.png" alt="">Branches</a>
+                </li>
+                <li class="menu-item"><a href="Employees.html"><img src="assets/side/image 10.png" alt="">Employees</a>
+                </li>
+                <li class="menu-item"><a href="Accounts.html"><img src="assets/side/image 3acc.png" alt="">Accounts</a>
+                </li>
+                <li class="menu-item"><a href="Customer Support.html"><img src="assets/side/image 10 (1).png"
+                            alt="">Customer Support</a></li>
+                <li class="menu-item"><a href="Transactions.html"><img src="assets/side/image 10 (2).png"
+                            alt="">Transactions</a></li>
+                <li class="menu-item"><a href="Currencyexchange.html"><img src="assets/side/image 10 (3).png"
+                            alt="">Currency Exchange</a></li>
+                <li class="menu-item active"><a href="transferglobally.html"><img src="assets/side/image 10 (4).png"
+                            alt="">Transfer Globally</a></li>
+                <li class="menu-item"><a href="document.html"><img src="assets/side/image 10 (5).png"
+                            alt="">Documents</a></li>
+            </ul>
+
+
+            <div class="profile">
+                <img src="assets/side/image 15.png" alt="">
+                <div class="profile-main">
+
+                    <p>Profile</p>
+                    <p>Abdul Ahad (Employee)</p>
+                </div>
+            </div>
+            <div class="nav-detail">
+                <p><object data="assets/Ellipse 1064reddot.svg" type="image/svg+xml"></object> Employee Account</p>
+                <p><object data="assets/Ellipse 1064bluedot.svg" type="image/svg+xml"></object>Shared Account (Bank ABC)
+                </p>
+            </div>
+            <div class="logout">
+                <button><img src="assets/image 15 (1).png" alt="">Logout</button>
+            </div>
+        </nav>
+        <main class="main-content">
+            <header class="header">
+                <div class="admin-info">
+                    <h3>Admin Panel, ABC Bank</h1>
+                        <p>04 March 2024 | 4:31 PM</p>
+                </div>
+                <div class="actions">
+                    <a href="Customer Support.html">
+                        <img draggable="false" class="action-img-1" src="assets/Group 28.png" alt=""></a>
+                    <input type="search" class="action-search" placeholder="Search...">
+                    <!--  <!-- <button class="audit-btn"><img src="assets/image 24.png" alt=""> Audit</button> --> -->
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="content-row">
+                    <div class="content-left-side">
+                        <div class="section1">
+                            <button class="section1-button">
+                                Active <img src="assets/down.png" alt="Down Arrow" class="arrow-icon">
+                            </button>
+                            <div class="section1-profile-section">
+                                <img src="assets/ellipse.png" alt="profile-pic" class="section1-profile-pic">
+                                <div class="section1-profile-info">
+                                    <h4>Pablo escobar</h4>
+                                    <p>Account No : 425687</p>
+                                </div>
+                            </div>
+                            <div class="section1-info">
+                                <p>Email</p>
+                                <h4>Hayatshankar@gmail.com</h4>
+                                <p>Number</p>
+                                <h4>(270)555-0117</h4>
+                                <p>Gender</p>
+                                <h4>Male</h4>
+                                <p>Date of Birth</p>
+                                <h4>06 jan 1998</h4>
+                                <p>Branch Code</p>
+                                <h4>235</h4>
+                                <p>Account type</p>
+                                <h4>Current Account</h4>
+                            </div>
+                            <div class="section1-big-info">
+                                <p>Linked Accounts</p>
+                                <div class="big-info-subsection">
+                                    <img src="assets/XYZbank.svg" alt="backicon" class="section1-back-icon">
+                                    <div class="big-info-subsection-backdetail">
+                                        <p>XYZ Bank</p>
+                                        <h4>422234-4433-4456</h4>
+                                    </div>
+                                </div>
+                                <p>Credit Cards</p>
+                                <div class="big-info-subsection">
+                                    <img src="assets/Card.svg" alt="backicon" class="section1-back-icon">
+                                    <div class="big-info-subsection-backdetail">
+                                        <p>XYZ Bank</p>
+                                        <h4>********</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="section1-3-buttons">
+                                <button class="gradient-button" onclick="openModal('modal1')">Send money</button>
+                                <button class="gradient-button" onclick="openModal('modal2')">Cash withdrawal</button>
+                                <button class="gradient-button" onclick="openModal('modal3')">Amount Deposit</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-right-side">
+                        <div class="section2">
+                            <div class="section2-card">
+                                <div class="section2-card-row">
+                                    <img src="assets/AccountBalance.svg">
+                                    <P>Account Balance</P>
+                                </div>
+                                <h3>BR 45836,25.333</h3>
+                            </div>
+                            <div class="section2-card">
+                                <div class="section2-card-row">
+                                    <img src="assets/AmountDeposite.svg">
+                                    <P>Amount Deposite</P>
+                                </div>
+                                <h3>BR 45836,25.333</h3>
+                            </div>
+                            <div class="section2-card">
+                                <div class="section2-card-row">
+                                    <img src="assets/AmountWithdrawal.svg">
+                                    <P>Amount widthdrawl</P>
+                                </div>
+                                <h3>BR 45836,25.333</h3>
+                            </div>
+
+                        </div>
+                        <div class="section3">
+                            <h3>Customer Transaction History</h3>
+                            <table class="transaction-table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="6">
+                                            <div class="table-header">
+                                                <span>Account No</span>
+                                                <span>Time</span>
+                                                <span>Service Detail</span>
+                                                <span>Amount</span>
+                                                <span>Price</span>
+                                                <span>Cashier Name</span>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Replace with actual data rows -->
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="table-row">
+                                                <span>123456</span>
+                                                <span>2024-06-22 14:30:00</span>
+                                                <span>Service XYZ</span>
+                                                <span>$100</span>
+                                                <span>$90</span>
+                                                <span>John Doe</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Add more rows as needed -->
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="table-row">
+                                                <span>123456</span>
+                                                <span>2024-06-22 14:30:00</span>
+                                                <span>Service XYZ</span>
+                                                <span>$100</span>
+                                                <span>$90</span>
+                                                <span>John Doe</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Add more rows as needed -->
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="table-row">
+                                                <span>123456</span>
+                                                <span>2024-06-22 14:30:00</span>
+                                                <span>Service XYZ</span>
+                                                <span>$100</span>
+                                                <span>$90</span>
+                                                <span>John Doe</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Add more rows as needed -->
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="table-row">
+                                                <span>123456</span>
+                                                <span>2024-06-22 14:30:00</span>
+                                                <span>Service XYZ</span>
+                                                <span>$100</span>
+                                                <span>$90</span>
+                                                <span>John Doe</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Add more rows as needed -->
+                                </tbody>
+                            </table>
+                            <h3>Customer loan history</h3>
+                            <table class="transaction-table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="6">
+                                            <div class="table-header">
+                                                <span>Loan type</span>
+                                                <span>Interest Rate</span>
+                                                <span>Outstanding</span>
+                                                <span>Due Date</span>
+                                                <span>Loan Term</span>
+                                                <span>Loan Amount</span>
+                                                <span>Payment Schedule</span>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Replace with actual data rows -->
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="table-row">
+                                                <span>Personal Loan</span>
+                                                <span>5.5% APR</span>
+                                                <span> $4,500</span>
+                                                <span>15 July 2024</span>
+                                                <span>2 Years</span>
+                                                <span>$10,000</span>
+                                                <span>Monthly</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Add more rows as needed -->
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="table-row">
+                                                <span>Mortgage Loan Loan</span>
+                                                <span>4.5% APR</span>
+                                                <span> $30,500</span>
+                                                <span>15 Dec 2024</span>
+                                                <span>2 Years</span>
+                                                <span>$10,000</span>
+                                                <span>Monthly</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Add more rows as needed -->
+
+                                </tbody>
+                            </table>
+                            <div class="show-more-btn" id="downloadPdfBtn">
+                                Downlaod
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+        </main>
+    </div>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <p>Send money</p>
+            <div class="modal-btn" onclick="navigateToBAnkTransfer()"><img src="assets/bank.svg" alt="bank"
+                    class="modal-btn-img">Bank Transfer<p></p>
+            </div>
+            <div class="modal-btn" onclick="navigateToTransferGlobally()"><img src="assets/transfer copy.png" alt="bank"
+                    class="modal-btn-img">Telbur Transfer<p>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <!-- <span class="close" onclick="closeModal('modal2')">&times;</span> -->
+            <p>Cash withdrawal</p>
+            <div class="enteramount">Enter Amount</div>
+            <input type="text" placeholder="Enter Amount">
+            <div class="info">
+                <span class="info-head">Current Balance</span>
+                <span class="Sub_head">BR 40,000</span>
+                <span class="info-head">Maximum Limit</span>
+                <span class="Sub_head">BR 80,000</span>
+            </div>
+            <div class="btn">
+                <button id="submitBtn">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <!-- <span class="close" onclick="closeModal('modal2')">&times;</span> -->
+            <p>Amount Deposite</p>
+            <div class="enteramount">Enter Amount</div>
+            <input type="text" placeholder="Enter Amount">
+            <div class="info">
+                <span class="info-head">Current Balance</span>
+                <span class="Sub_head">BR 40,000</span>
+                <span class="info-head">Maximum Limit</span>
+                <span class="Sub_head">BR 80,000</span>
+            </div>
+            <div class="btn">
+                <button id="submitBtn2">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="success-modal-content">
+
+            <img src="images/Animation - 1719470903488.gif" alt="Thank You GIF" class="modal-gif">
+            <p> Successfuly!</p>
+            <button class="modal-submit-btn" onclick="navigateToDashboard()">Continue</button>
+        </div>
+    </div>
+
+
+
+
+    <script src="scripts.js"></script>
+
+    <script>
+        document.getElementById('bell-icon-button').addEventListener('click', function () {
+            window.location.href = 'notification.html';
+        });
+        function navigateToLoginPage() {
+            window.location.href = '../Index.html'; // Replace with the actual URL of the new account page
+        }
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        // Close the modal if the user clicks outside of the modal content
+        window.onclick = function (event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = "none";
+            }
+        }    
+    </script>
+    <script>
+        document.getElementById('downloadPdfBtn').addEventListener('click', function () {
+            const { jsPDF } = window.jspdf;
+            const table = document.querySelector('.transaction-table');
+
+            html2canvas(table).then((canvas) => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('p', 'pt', 'a4');
+
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                pdf.save('transaction-table.pdf');
+            });
+        });
+    </script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        // Get the button that opens the modal
+        var btn = document.getElementById("submitBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        function navigateToBAnkTransfer() {
+            window.location.href = 'BankTransfer.html'; // Replace with the actual URL of the new account page
+        }
+        function navigateToTransferGlobally() {
+            window.location.href = 'TransferGlobally.html'; // Replace with the actual URL of the new account page
+        }
+        function navigateToDashboard() {
+            window.location.href = 'viewdetail.html'; // Replace with the actual URL of the new account page
+        }
+    </script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        // Get the button that opens the modal
+        var btn = document.getElementById("submitBtn2");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
